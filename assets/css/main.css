@@ -1,5 +1,5 @@
 @import url(font-awesome.min.css);
-@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400";
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Raleway";
 
 /*
 	Stellar by HTML5 UP
@@ -32,6 +32,10 @@
 
 	blockquote, q {
 		quotes: none;
+	}
+
+	header h2 {
+		font-family: "raleway";
 	}
 
 	blockquote:before, blockquote:after, q:before, q:after {
@@ -3251,6 +3255,22 @@
 		cursor: default;
 		text-align: center;
 	}
+
+.red_palette {
+	color: #f25f5c;
+}
+
+.yellow_palette {
+	color: #ffe066;
+}
+
+.blue_palette {
+	color: #247ba0;
+}
+
+.cyan_palette {
+	color: #70c1b3;
+}
 
 		#nav input, #nav select, #nav textarea {
 			color: #636363;
