@@ -69,7 +69,19 @@ old drishti start
     right: 0px;
     background-image: url("../images/dexter_sprite.png");
     background-size: 1000px;
+    animation-name: logo-animation;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-timing-function: steps(10,start);
 }
 
+@keyframes logo-animation {
+  from{
+    background-position: 0px top;
+  }
+  to{
+    background-position: 500px top;
+  }
+}
 
 /*dexter end*/
