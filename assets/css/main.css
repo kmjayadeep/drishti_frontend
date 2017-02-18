@@ -72,16 +72,43 @@ old drishti start
     animation-name: logo-animation;
     animation-duration: 5s;
     animation-delay: 1s;
-    animation-timing-function: steps(10,start);
+    animation-timing-function: steps(10, start);
 }
 
 @keyframes logo-animation {
-  from{
-    background-position: 0px top;
-  }
-  to{
-    background-position: 500px top;
-  }
+    from {
+        background-position: 0px top;
+    }
+    to {
+        background-position: 500px top;
+    }
 }
 
+
 /*dexter end*/
+
+
+/*new drishti logo start*/
+
+#new-drishti-container {
+    background: #000000;
+    height: 100%;
+    display: none;
+}
+
+#main-logo {
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    top: 20%;
+    text-align: center;
+    height: 60%;
+}
+
+#main-logo .logo {
+    max-width: 70%;
+    max-height: 100%;
+}
+
+
+/*new drishti logo start*/
