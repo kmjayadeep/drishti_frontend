@@ -155,5 +155,5 @@ function setupNavigation(){
         overlay.removeClass('on-overlay')
         wrapper.removeClass('opened-nav')
 	}
-    $('document').click(closeNav)
+	document.addEventListener('click', closeNav);
 }
