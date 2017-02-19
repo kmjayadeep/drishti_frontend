@@ -117,8 +117,15 @@ old drishti start
 
 .nav-button{
 
-  float:bottom;
-  align-items: center;
+
+
+
+
+
+
+
+/*nav button property */
+
 
 }
 
@@ -133,27 +140,8 @@ old drishti start
 
 
 
-.component {
-	position: relative;
-	margin-bottom: 3em;
-	height: 15em;
-	background: rgba(0,0,0,0.05);
-	font-family: 'Lato', Arial, sans-serif;
-}
 
-.component > h2 {
-	position: absolute;
-	overflow: hidden;
-	width: 100%;
-	text-align: center;
-	text-transform: uppercase;
-	white-space: nowrap;
-	font-weight: 300;
-	font-style: italic;
-	font-size: 12em;
-	opacity: 0.1;
-	cursor: default;
-}
+
 
 .cn-button {
 	position: absolute;
@@ -437,3 +425,4 @@ old drishti start
 		line-height: 3em;
 	}
 }
+/*navigation buuton*/
