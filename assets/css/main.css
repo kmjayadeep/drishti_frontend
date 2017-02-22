@@ -408,3 +408,84 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     font-size:15px;
 }
 /*navigation end*/
+
+.about{
+  color:black;
+  background-color: #50514f;
+  padding-top:40px;
+  width:100%;
+  height:100%;
+  display: table;
+  position: relative;
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+
+}
+
+.events{
+  color:black;
+  background-color: #f25f5c;
+  padding-top:40px;
+  width:100%;
+  height:100%;
+  display: table;
+  position: relative;
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
+
+.workshops{
+  color:black;
+  background-color: #ffe066;
+  padding-top:40px;
+  width:100%;
+  height:100%;
+  display: table;
+  position: relative;
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
+
+.sponsor{
+  color:black;
+  background-color:#247ba0;
+  padding-top:40px;
+width:100%;
+height:100%;
+display: table;
+position: relative;
+background-color: white;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+-o-background-size: cover;
+
+}
+
+.contact{
+  color:black;
+  background-color:#70c1b3;
+  padding-top:40px;
+  width:100%;
+  height:100%;
+  display: table;
+  position: relative;
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
