@@ -73,7 +73,134 @@
     <section id="contact" class="contact">
       <h1>Contact</h1>
 
+
+
+      <div id="content">
+        <ul class="accordion" id="accordion">
+              <li class="bg1">
+                  <div class="heading">Event Coordinator</div>
+                  <div class="bgDescription"></div>
+                  <div class="description">
+                      <h2>Event Coordinator</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                          ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                          nulla pariatur.</p>
+                      <a href="#">more &rarr;</a>
+                  </div>
+              </li>
+              <li class="bg2">
+                  <div class="heading">Program Convener</div>
+                  <div class="bgDescription"></div>
+                  <div class="description">
+                      <h2>Program Convener</h2>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                          quae ab illo inventore veritatis et quasi architecto beatae vitae
+                          dicta sunt explicabo. </p>
+                      <a href="#">more &rarr;</a>
+                  </div>
+
+              </li>
+              <li class="bg3">
+                  <div class="heading">Program Convener</div>
+                  <div class="bgDescription"></div>
+                  <div class="description">
+                      <h2>Program Convener</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                          ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                          nulla pariatur.</p>
+                      <a href="#">more &rarr;</a>
+                  </div>
+
+              </li>
+              <li class="bg4 bleft">
+                  <div class="heading">Event Coordinator</div>
+                  <div class="bgDescription"></div>
+                  <div class="description">
+                      <h2>Event Coordinator</h2>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                          quae ab illo inventore veritatis et quasi architecto beatae vitae
+                          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                          sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+                          dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                      <a href="#">more &rarr;</a>
+                  </div>
+
+              </li>
+              <li class="bg1">
+                  <div class="heading">Event Coordinator</div>
+                  <div class="bgDescription"></div>
+                  <div class="description">
+                      <h2>Event Coordinator</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                          ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                          nulla pariatur.</p>
+                      <a href="#">more &rarr;</a>
+                  </div>
+              </li>
+              <li class="bg3">
+                  <div class="heading">Program Convener</div>
+                  <div class="bgDescription"></div>
+                  <div class="description">
+                      <h2>Program Convener</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                          ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                          nulla pariatur.</p>
+                      <a href="#">more &rarr;</a>
+                  </div>
+
+              </li>
+          </ul>
+      </div>
     </section>
+    <!--contact area-->
+
+      <!-- The JavaScript -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+      <script type="text/javascript">
+          $(function() {
+              $('#accordion > li').hover(
+                  function () {
+                      var $this = $(this);
+                      $this.stop().animate({'width':'480px'},500);
+                      $('.heading',$this).stop(true,true).fadeOut();
+                      $('.bgDescription',$this).stop(true,true).slideDown(500);
+                      $('.description',$this).stop(true,true).fadeIn();
+                  },
+                  function () {
+                      var $this = $(this);
+                      $this.stop().animate({'width':'115px'},1000);
+                      $('.heading',$this).stop(true,true).fadeIn();
+                      $('.description',$this).stop(true,true).fadeOut(500);
+                      $('.bgDescription',$this).stop(true,true).slideUp(700);
+                  }
+              );
+          });
+      </script>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
