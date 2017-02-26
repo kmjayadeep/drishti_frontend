@@ -109,7 +109,7 @@ old drishti start
 
 #new-drishti-container {
     background: #000000;
-    height: 100%;
+    height: 100vh;
 }
 
 #main-logo {
@@ -118,7 +118,7 @@ old drishti start
     left: 25%;
     top: 20%;
     text-align: center;
-    height: 60%;
+    height: 60vh;
 }
 
 #main-logo .logo {
