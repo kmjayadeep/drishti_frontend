@@ -29,55 +29,57 @@
             </div>
         </div>
         <div id="new-drishti-container">
-            <!-- SAJIN -->
-            <!-- <button  id="sign-in-status" style="color:white; margin-left: 1000px;"></button> -->
-            <button id="sign-in" onclick="mySignOut()" style="border-color:black;background-color:black; color:white; margin-left: 1000px;"></button>
-            <!-- <div id="account-details"></div> -->
-            <div id="firebaseui-auth-container" style="margin-left: 1000px;"></div<div id="firebaseui-auth-container"></div>
-            <!-- <div id="loader">Loading...</div> -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Registration Details</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Mail</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">College</label>
-                                    <input type="text" class="form-control" id="pwd">
-                                </div>
-                                <div class="form-group">
-                                    <label for="acc">Accomodation</label>
-                                       <label> <input type="radio"> YES</label>
-                                       <label> <input type="radio"> NO</label>
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                        </form>
+            <div id="main-logo">
+                <img class="logo" src="assets/images/logo.png" />
+            </div>
+        </div>
+        <div id="dexter"></div>
+        <!-- SAJIN -->
+        <!-- <button  id="sign-in-status" style="color:white; margin-left: 1000px;"></button> -->
+        <button id="sign-in" onclick="mySignOut()" style="border-color:black;background-color:black; color:white; position:absolute;right: 0;top: 0;"></button>
+        <!-- <div id="account-details"></div> -->
+        <div id="firebaseui-auth-container" style="position:absolute;right: 0;top: 0;"></div<div id="firebaseui-auth-container"></div>
+        <!-- <div id="loader">Loading...</div> -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Registration Details</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="modal-body">
+                        <p></p>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Mail</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">College</label>
+                                <input type="text" class="form-control" id="pwd">
+                            </div>
+                            <div class="form-group">
+                                <label for="acc">Accomodation</label>
+                                <label>
+                                    <input type="radio"> YES</label>
+                                <label>
+                                    <input type="radio"> NO</label>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
                     </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+        </div>
         <!-- SAJIN -->
-        <div id="main-logo">
-            <img class="logo" src="assets/images/logo.png" />
-        </div>
-        </div>
-        <div id="dexter"></div>
     </section>
     <div class="navigation">
         <button class="cn-button" id="cn-button">+</button>
@@ -99,108 +101,92 @@
         <h1>About Section</h1>
     </section>
     <section id="events" class="events">
-
-
-       <header class='masthead'>
-      <div class='brand-container'>
-        <a href='#'>
-          <span class='brand-initials'>LOGO</span>
-          <span class='brand-name'>Drishti</span>
-        </a>
-      </div>
-      <nav>
-        <div class='nav-container'>
-            <div>
-              <a class='slide' href='#'>
-                <span class='element'>Computer</span>
-                <span class='name'>Department</span>
-              </a>
-
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Electrical</span>
-              <span class='name'>Department</span>
-            </a>
-
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Electronic</span>
-              <span class='name'>Department</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Mechanical</span>
-              <span class='name'>Department</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Civil </span>
-              <span class='name'>Department</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Architecture</span>
-              <span class='name'>Department</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Online</span>
-              <span class='name'>.</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Gaming</span>
-              <span class='name'>.</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>General</span>
-              <span class='name'>.</span>
-            </a>
-          </div>
-          <div>
-            <a class='slide' href='#'>
-              <span class='element'>Miscellanenous</span>
-              <span class='name'>.</span>
-            </a>
-          </div>
-        </div>
-      </nav>
-      <div class='social-container'>
-        <span>
+        <header class='masthead'>
+            <div class='brand-container'>
+                <a href='#'>
+                    <span class='brand-initials'>LOGO</span>
+                    <span class='brand-name'>Drishti</span>
+                </a>
+            </div>
+            <nav>
+                <div class='nav-container'>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Computer</span>
+                            <span class='name'>Department</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Electrical</span>
+                            <span class='name'>Department</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Electronic</span>
+                            <span class='name'>Department</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Mechanical</span>
+                            <span class='name'>Department</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Civil </span>
+                            <span class='name'>Department</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Architecture</span>
+                            <span class='name'>Department</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Online</span>
+                            <span class='name'>.</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Gaming</span>
+                            <span class='name'>.</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>General</span>
+                            <span class='name'>.</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a class='slide' href='#'>
+                            <span class='element'>Miscellanenous</span>
+                            <span class='name'>.</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <div class='social-container'>
+                <span>
           <a class='social-roll github' href='#'></a>
         </span>
-        <span>
+                <span>
           <a class='social-roll twitter' href='#'></a>
         </span>
-        <span>
+                <span>
           <a class='social-roll linkedin' href='#'></a>
         </span>
-        <span>
+                <span>
           <a class='social-roll rss' href='#'></a>
         </span>
-      </div>
-    </header>
-
-
-
-
-
-
-
-
-
-
-
-
+            </div>
+        </header>
         <h1>Events</h1>
         <section class="grid3d vertical" id="grid3d">
             <div class="grid-wrap">

@@ -162,25 +162,15 @@ function setupNavigation() {
 }
 
 
-
-
-
-
-
-
-
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyBnIukJWgJozWm8WZMqgMVvhg_srWwjbgY",
-    authDomain: "cetdrishti17.firebaseapp.com",
-    databaseURL: "https://cetdrishti17.firebaseio.com",
-    storageBucket: "cetdrishti17.appspot.com",
-    messagingSenderId: "1034086810518"
+    apiKey: 'AIzaSyCvN9K2cdfUf4H8BIr8vqRhdtGV_ca2UIs',
+    authDomain: 'drishti-bd782.firebaseapp.com',
+    databaseURL: 'https://drishti-bd782.firebaseio.com',
+    storageBucket: 'drishti-bd782.appspot.com',
+    messagingSenderId: '37494669483',
 };
 firebase.initializeApp(config);
-
-
-
 
 // FirebaseUI config.
 var uiConfig = {
@@ -252,11 +242,11 @@ mySignOut = function() {
 
                     // document.getElementById('sign-in-status').textContent = 'Signed in';
                     document.getElementById("firebaseui-auth-container").style.visibility = "hidden";
-                    document.getElementById('sign-in').style.visibility="visible";
+                    document.getElementById('sign-in').style.visibility = "visible";
                     document.getElementById('sign-in').textContent = 'Sign out';
 
                     // document.getElementById("myModal").showModal();
-                    $('#myModal').modal('show'); 
+                    $('#myModal').modal('show');
                     // document.getElementById('account-details').textContent = JSON.stringify({
                     //   displayName: displayName,
                     //   email: email,
@@ -273,7 +263,7 @@ mySignOut = function() {
 
                 document.getElementById("firebaseui-auth-container").style.visibility = "visible";
 
-                document.getElementById('sign-in').style.visibility="hidden";
+                document.getElementById('sign-in').style.visibility = "hidden";
                 // document.getElementById('account-details').textContent = 'null';
             }
         }, function(error) {
