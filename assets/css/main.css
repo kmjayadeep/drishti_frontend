@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+
 body {
     padding: 0;
     margin: 0;
@@ -465,6 +469,7 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 }
 
 .events {
+    font-family: 'Oswald', sans-serif;
     background-color: white;
     /*background-color: #f25f5c;*/
     width: 100%;
