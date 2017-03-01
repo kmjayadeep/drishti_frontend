@@ -7,19 +7,22 @@ $(document).ready(function() {
     initializeParticles()
     initializeFunction()
     setupNavigation()
-    setTimeout(function() {
-        $('#new-drishti-container').invisible()
-        $('#old-drishti-container').show()
-        $('#dexter').show()
+        // setTimeout(function() {
 
-        setTimeout(function() {
+
+    if ($(window).width()<640) {
+        return;
+    }
+    $('#dexter').show()
+    $('#old-drishti-container').show()
+
+    setTimeout(function() {
             $('#old-drishti-container').fadeOut()
             setTimeout(function() {
-                $('#new-drishti-container').visible()
-            },1000)
-            $('#dexter').fadeOut()
-        }, 6000)
-    }, 1000)
+                $('#dexter').fadeOut()
+            }, 1000)
+        }, 8000)
+        // }, 1000)
 });
 
 function initializeFunction() {
