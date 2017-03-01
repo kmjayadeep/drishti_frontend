@@ -41,7 +41,7 @@ old drishti start
 
 #old-drishti-container {
     background: #ecf0f1;
-    height: 100%;
+    height: 100vh;
     display: none;
 }
 
@@ -76,26 +76,26 @@ old drishti start
 /*dexter start*/
 
 #dexter {
-    width: 80px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    left: 10px;
     background-image: url("../images/dexter_sprite.png");
-    background-size: 1000px;
     animation-name: logo-animation;
     animation-duration: 5s;
     animation-delay: 1s;
-    animation-timing-function: steps(10, start);
+    animation-timing-function: steps(25, start);
     display: none;
+    z-index: 10;
 }
 
 @keyframes logo-animation {
     from {
-        background-position: 0px top;
+        background-position: 0px;
     }
     to {
-        background-position: 500px top;
+        background-position: -4635px;
     }
 }
 
@@ -108,6 +108,9 @@ old drishti start
 #new-drishti-container {
     background: #000000;
     height: 100vh;
+    position: absolute;
+    top: 0px;
+    width: 100%;
 }
 
 #main-logo {
@@ -1245,6 +1248,7 @@ Media Queries
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    overflow: hidden;
 }
 
 
@@ -1264,3 +1268,4 @@ Media Queries
 
 
 /* contact */
+

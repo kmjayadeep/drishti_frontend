@@ -5,8 +5,37 @@ $(document).ready(function() {
         $('#preloader').hide();
     }, 2000)
     initializeParticles()
+    initializeFunction()
     setupNavigation()
+    setTimeout(function() {
+        $('#new-drishti-container').invisible()
+        $('#old-drishti-container').show()
+        $('#dexter').show()
+
+        setTimeout(function() {
+            $('#old-drishti-container').fadeOut()
+            setTimeout(function() {
+                $('#new-drishti-container').visible()
+            },1000)
+            $('#dexter').fadeOut()
+        }, 6000)
+    }, 1000)
 });
+
+function initializeFunction() {
+    (function($) {
+        $.fn.invisible = function() {
+            return this.each(function() {
+                $(this).css("visibility", "hidden");
+            });
+        };
+        $.fn.visible = function() {
+            return this.each(function() {
+                $(this).css("visibility", "visible");
+            });
+        };
+    }(jQuery));
+}
 
 function initializeParticles() {
     particlesJS('new-drishti-container', {
