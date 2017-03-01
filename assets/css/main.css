@@ -457,7 +457,8 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 /*navigation end*/
 
 .about {
-    background-color: #50514f;
+    /*background-image: url("../images/cet_image.jpg");*/
+    /*background-color: #50514f;*/
     width: 100%;
     height: 100%;
     display: table;
@@ -470,6 +471,7 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 
 .events {
     font-family: 'Oswald', sans-serif;
+    background-image:url("../images/events.jpg") ;
     background-color: white;
     /*background-color: #f25f5c;*/
     width: 100%;
@@ -480,6 +482,14 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+
+  background-attachment: scroll;
+  background-position:;
+  background-size: contain;
+
 }
 
 a {

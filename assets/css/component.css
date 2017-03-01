@@ -90,7 +90,7 @@
 }
 
 section {
-	padding: 0em 3% 4em;
+	
 	text-align: center;
 	font-size: 1.5em;
 }
@@ -207,7 +207,7 @@ section {
 }
 
 .grid figure {
-	
+
 	display: inline-block;
 	cursor: pointer;
 	-webkit-touch-callout: none;

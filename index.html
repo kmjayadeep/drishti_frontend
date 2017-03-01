@@ -11,12 +11,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/component.css" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <!-- FIREBASE sss -->
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Playfair+Display:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="assets/js/modernizr.custom.js"></script>
 </head>
@@ -98,9 +102,83 @@
     <div id="preloader">
         <!-- place loader here -->
     </div>
+
+
+
+
+
+
+
     <section id="about" class="about">
-        <h1>About Section</h1>
+
+
+
+
+
+
+        		<!--[if IE]>
+        			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        		<![endif]-->
+        		<script>
+        		document.documentElement.className = 'js';
+        		</script>
+
+        	<div class="demo-2">
+
+
+
+        			<!-- Initial markup -->
+        			<div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">
+                <h1 style="font-family: 'Merriweather', serif;">About Section</h1>
+              </div>
+        			<h2 class="trigger-headline trigger-headline--hidden"><span>D</span><span>R</span><span>I</span><span>S</span><span>H</span><span>T</span><span>I</span></h2>
+        			<div class="bottom-nav">
+        				<button class="btn btn--trigger">Show Effect</button>
+
+        			</div>
+
+        		<script src="assets/js/anime.min.js"></script>
+        		<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+        		<script src="assets/js/about.js"></script>
+        		<script>
+        		(function() {
+        			var headline = document.querySelector('.trigger-headline'),
+        				trigger = document.querySelector('.btn--trigger'),
+        				segmenter = new Segmenter(document.querySelector('.segmenter'), {
+        					pieces: 4,
+        					animation: {
+        						duration: 1500,
+        						easing: 'easeInOutExpo',
+        						delay: 100,
+        						translateZ: 100
+        					},
+        					parallax: true,
+        					positions: [
+        						{top: 0, left: 0, width: 45, height: 45},
+        						{top: 55, left: 0, width: 45, height: 45},
+        						{top: 0, left: 55, width: 45, height: 45},
+        						{top: 55, left: 55, width: 45, height: 45}
+        					],
+        					onReady: function() {
+        						trigger.classList.remove('btn--hidden');
+        						trigger.addEventListener('click', function() {
+        							segmenter.animate();
+        							headline.classList.remove('trigger-headline--hidden');
+        							this.classList.add('btn--hidden');
+        						});
+        					}
+        				});
+        		})();
+        		</script>
+          </div>
+
+
+
     </section>
+
+
+
+
     <section id="events" class="events">
         <header class='masthead'>
             <div class='brand-container'>
@@ -132,7 +210,7 @@
                     <div>
                         <a class='slide' href='#'>
                             <span class='element'>Mechanical</span>
-                          
+
                         </a>
                     </div>
                     <div>
@@ -174,7 +252,7 @@
                 </div>
             </nav>
         </header>
-        <h1>Events</h1>
+        <h1 style="font-family: 'Playfair Display', serif;color:white;">Events</h1>
         <section class="grid3d vertical" id="grid3d">
             <div class="grid-wrap">
                 <div class="grid">
