@@ -11,7 +11,10 @@ $(document).ready(function() {
     if ($(window).width() >= 640) {
         $('#dexter').show()
         $('#old-drishti-container').show()
-        $("body").css("overflow-y", "hidden");
+        setTimeout(function() {
+            window.scrollTo(0, 0)
+            $("body").css("overflow-y", "hidden");
+        },100)
         setTimeout(function() {
             $('#old-drishti-container').fadeOut()
             $("body").css("overflow-y", "scroll");
