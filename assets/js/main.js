@@ -97,19 +97,13 @@ function setupEvents(){
             }
             console.log(events)
             var tmpl = $.templates("#eventsTemplate");
-            var grid = tmpl.render(events)
+            var grid = tmpl.render({
+                events:events
+            })
             $('.events-grid').html(grid)
             new grid3D(document.getElementById('grid3d'));
         })
     }
-}
-
-function nano(template, data) {
-  return template.replace(/\{([\w\.]*)\}/g, function(str, key) {
-    var keys = key.split("."), v = data[keys.shift()];
-    for (var i = 0, l = keys.length; i < l; i++) v = v[keys[i]];
-    return (typeof v !== "undefined" && v !== null) ? v : "";
-  });
 }
 
 function initializeParticles() {

@@ -1175,12 +1175,9 @@
             <section class="grid3d vertical" id="grid3d">
 				<div class="grid-wrap">
 					<div class="grid">
-						<figure><img src="img/1.jpg" alt="img01"/></figure>
-						<figure><img src="img/5.jpg" alt="img05"/></figure>
-						<figure><img src="img/5.jpg" alt="img05"/></figure>
-						<figure><img src="img/5.jpg" alt="img05"/></figure>
-						<figure><img src="img/5.jpg" alt="img05"/></figure>
-						<figure><img src="img/5.jpg" alt="img05"/></figure>
+                        {{for events}}
+						<figure><img src="{{:image}}" alt=":name"/></figure>
+                        {{/for}}
 					</div>
 				</div><!-- /grid-wrap -->
 				<div class="content">
