@@ -83,15 +83,15 @@ old drishti start
 
 #dexter {
     width: 175px;
-    height: 150px;
+    height: 300px;
     position: absolute;
     bottom: 0px;
     left: 10px;
     background-image: url("../images/dexter_sprite.png");
     animation-name: logo-animation,movement;
-    animation-duration: 5s;
+    animation-duration: 8s;
     /*animation-delay: 1s;*/
-    animation-timing-function: steps(25, start);
+    animation-timing-function: steps(53, start);
     display: none;
     z-index: 80;
 }
@@ -106,23 +106,26 @@ old drishti start
     from {
         left: 10px;
     }
-    30%{
+    20%{
         left: 10px;
     }
-    50%{
-        left: 150px;
+    40%{
+        left: 200px;
+    }
+    70%{
+        left: 200px;
     }
     to {
-        left: 150px;
+        left: -20px;
     }
 }
 
 @keyframes logo-animation {
     from {
-        background-position: 0px;
+        background-position: 0px bottom;;
     }
     to {
-        background-position: -4635px;
+        background-position: -9820px bottom;
     }
 }
 

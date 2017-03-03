@@ -16,12 +16,12 @@ $(document).ready(function() {
             $("body").css("overflow-y", "hidden");
         },100)
         setTimeout(function() {
-            $('#old-drishti-container').fadeOut()
+            $('#old-drishti-container').slideUp()
             $("body").css("overflow-y", "scroll");
             setTimeout(function() {
                 $('#dexter').fadeOut()
             }, 1000)
-        }, 8000)
+        }, 9000)
     }
 
 });
