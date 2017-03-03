@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    window.isDebug = true;
+    window.serverUrl = 'http://server.drishticet.org/'
     $('#preloader').addClass('hide')
         //TOOD remove after testing
     setTimeout(function() {
@@ -8,7 +10,7 @@ $(document).ready(function() {
     initializeFunction()
     setupNavigation()
 
-    if (false&&$(window).width() >= 640) {
+    if (!window.isDebug&&$(window).width() >= 640) {
         $('#dexter').show()
         $('#old-drishti-container').show()
         setTimeout(function() {
@@ -24,21 +26,66 @@ $(document).ready(function() {
         }, 9000)
     }
 
+    setupEvents();
+
 });
 
 function initializeFunction() {
-    (function($) {
-        $.fn.invisible = function() {
-            return this.each(function() {
-                $(this).css("visibility", "hidden");
-            });
-        };
-        $.fn.visible = function() {
-            return this.each(function() {
-                $(this).css("visibility", "visible");
-            });
-        };
-    }(jQuery));
+    getColleges()
+    getEvents()
+}
+
+function getColleges(cb){
+    if(typeof window.colleges =='object'&&typeof cb=='function')
+        return cb(null,window.colleges)
+    $.get(window.serverUrl+'public/college',function(data,status){
+        if(status=='success'){
+            window.colleges = data;
+            if(typeof cb=='function')
+                cb(null,data)
+        }else if(typeof cb=='function')
+            cb('Network error')
+    })
+}
+
+function getEvents(cb){
+    if(typeof window.allEvents =='object'&&typeof cb=='function')
+        return cb(null,window.allEvents)
+    $.get(window.serverUrl+'public/event',function(data,status){
+        if(status=='success'){
+            window.allEvents = data;
+            if(typeof cb=='function')
+                cb(null,data)
+        }else if(typeof cb=='function')
+            cb('Network error')
+    })
+}
+
+function getEventsByCategory(cat,cb){
+    getEvents(function(err,events){
+        if(err)
+            return cb(err)
+        var catEvents = events.filter(function(event){
+            return event.category == cat
+        })
+        cb(null,catEvents)
+    })
+}
+
+function setupEvents(){
+    $('.slide').click(loadEvents);
+    function loadEvents(event) {
+        event.preventDefault();
+        var category = $(this).children().data('category')
+        console.log(category)
+        getEventsByCategory(category,function(err,events){
+            if(err){
+                //handle err
+                return;
+            }
+            console.log(events)
+        })
+    }
 }
 
 function initializeParticles() {
