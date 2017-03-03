@@ -40,7 +40,8 @@
 		// loading indicator
 		this.loader = this.contentEl.querySelector( 'span.loading' );
 		// support: support for pointer events, transitions and 3d transforms
-		this.support = support.pointerevents && support.csstransitions && support.csstransforms3d;
+		this.support =  support.csstransitions && support.csstransforms3d;
+		// support.pointerevents &&
 		// init events
 		this._initEvents();
 	};
