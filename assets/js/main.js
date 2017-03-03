@@ -1,11 +1,7 @@
 $(document).ready(function() {
     window.isDebug = true;
     window.serverUrl = 'http://server.drishticet.org/'
-    $('#preloader').addClass('hide')
-        //TOOD remove after testing
-    setTimeout(function() {
-        $('#preloader').hide();
-    }, 2000)
+    hideLoading()
     initializeParticles()
     initializeFunction()
     setupNavigation()
@@ -29,6 +25,19 @@ $(document).ready(function() {
     setupEvents();
 
 });
+
+function showLoading(){
+    $('#preloader').removeClass('hide')
+    $('#preloader').show()
+}
+
+function hideLoading(){
+    $('#preloader').addClass('hide')
+    setTimeout(function() {
+        if(isDebug)
+            $('#preloader').hide();
+    }, 2000)
+}
 
 function initializeFunction() {
     getColleges()
@@ -73,6 +82,9 @@ function getEventsByCategory(cat,cb){
 }
 
 function setupEvents(){
+    if(window.isDebug)
+        $('.events-bg').hide()
+    new grid3D( document.getElementById( 'grid3d' ) );
     $('.slide').click(loadEvents);
     function loadEvents(event) {
         event.preventDefault();

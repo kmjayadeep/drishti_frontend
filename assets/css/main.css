@@ -849,10 +849,37 @@ nav input:checked ~ .has-child .name:after {
     height: calc(100vh - 100px);
     float:right;
 }
-.events-body img{
+.events-bg{
     width: 100%;
     height: 100%;
 }
+.events-grid{
+    height: 100%;
+    overflow-y: scroll;
+    margin-right: 10px;
+}
+
+.events-grid::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px #237b9f;
+	box-shadow: inset 0 0 6px #237b9f;
+	background-color: #fff;
+}
+
+.events-grid::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #fff;
+}
+
+.events-grid::-webkit-scrollbar-thumb
+{
+	background-color: #237b9f;
+	border: 2px solid #fff;
+}
+
+
+
 h1.events-head{
     /*font-family: 'Playfair Display', serif;*/
     color:white;
@@ -1376,3 +1403,47 @@ Media Queries
 
 
 /* contact */
+
+
+.close.heavy {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.close.heavy:hover::before, .close.heavy:hover::after {
+  background: #333;
+}
+.close.heavy::before, .close.heavy::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #7d7d7d;
+}
+.close.heavy::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.close.heavy::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.close.heavy.heavy::before, .close.heavy.heavy::after {
+  height: 12px;
+  margin-top: -6px;
+}
+
+.close.heavy.rounded::before, .close.heavy.rounded::after {
+  border-radius: 5px;
+}

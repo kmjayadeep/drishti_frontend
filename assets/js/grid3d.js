@@ -93,14 +93,14 @@
 				// simulating loading...
 				setTimeout( function() {
 					// hide loader
-					classie.removeClass( self.loader, 'show' );
+					hideLoading()
 					// in the end of the transition set class "show" to respective content item
 					classie.addClass( self.contentItems[ pos ], 'show' );
 				}, 1000 );
 				// show content area
 				classie.addClass( self.contentEl, 'show' );
 				// show loader
-				classie.addClass( self.loader, 'show' );
+				showLoading()
 				classie.addClass( document.body, 'noscroll' );
 				self.isAnimating = false;
 			};
