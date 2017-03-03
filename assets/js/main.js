@@ -125,6 +125,9 @@ function setupWorkshops(){
         if(err)
             return setupWorkshops()
         console.log(workshops)
+        var tmpl = $.templates("#workshopTemplate");
+        var grid = tmpl.render(workshops)
+        $('.workshop-grid').html(grid)
     })
 }
 
