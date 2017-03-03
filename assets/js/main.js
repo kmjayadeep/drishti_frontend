@@ -82,20 +82,24 @@ function getEventsByCategory(cat,cb){
 }
 
 function setupEvents(){
-    if(window.isDebug)
-        $('.events-bg').hide()
-    new grid3D( document.getElementById( 'grid3d' ) );
     $('.slide').click(loadEvents);
     function loadEvents(event) {
         event.preventDefault();
+        $('.events-bg').hide()
         var category = $(this).children().data('category')
         console.log(category)
+        showLoading()
         getEventsByCategory(category,function(err,events){
+            hideLoading()
             if(err){
                 //handle err
                 return;
             }
             console.log(events)
+            var tmpl = $.templates("#eventsTemplate");
+            var grid = tmpl.render(events)
+            $('.events-grid').html(grid)
+            new grid3D(document.getElementById('grid3d'));
         })
     }
 }
