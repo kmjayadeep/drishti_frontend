@@ -8,6 +8,11 @@ body {
     overflow-x: hidden;
 }
 
+.section-head{
+    text-align: center;
+    font-family: "Oswald"
+}
+
 .main {
     margin: 0;
     padding: 0;
@@ -475,9 +480,7 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 
 .events {
     font-family: 'Oswald', sans-serif;
-    background-image:url("../images/events.jpg") ;
-    background-color: white;
-    /*background-color: #f25f5c;*/
+    background-color: #237b9f;
     width: 100%;
     height: 100%;
     display: table;
@@ -504,7 +507,8 @@ nav {
     display: table;
     position: relative;
     table-layout: fixed;
-    width: 100%;
+    width: 200px;
+    background: white;
 }
 
 nav input {
@@ -740,7 +744,7 @@ nav label {
 }
 
 nav .slide {
-    padding: 10px 10px;
+    padding: 0;
     font-size: 1em;
     display: block;
     color: #393939;
@@ -770,6 +774,8 @@ nav .slide .element {
     font-style: normal;
     display: block;
     line-height: 1;
+    padding: 10px;
+    padding-left: 16px;
 }
 
 nav .slide .name {
@@ -856,6 +862,17 @@ nav input:checked ~ .has-child .name:after {
     -moz-transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
+}
+
+.events-nav {
+    font-family: 'Oswald', sans-serif;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+h1.events-head{
+    /*font-family: 'Playfair Display', serif;*/
+    color:white;
 }
 
 @media only screen and (min-width: 48.0625em) {
@@ -957,9 +974,9 @@ nav input:checked ~ .has-child .name:after {
 
 @media only screen and (min-width: 48.0625em) {
     .masthead {
-        position: absolute;
-        top: 0;
-        left: 0;
+        width: 200px;
+        padding: 0;
+        margin: 0;
     }
     .masthead .brand-container {
         padding: 10px 0 50px 10px;

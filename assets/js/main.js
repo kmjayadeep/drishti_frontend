@@ -8,7 +8,7 @@ $(document).ready(function() {
     initializeFunction()
     setupNavigation()
 
-    if ($(window).width() >= 640) {
+    if (false&&$(window).width() >= 640) {
         $('#dexter').show()
         $('#old-drishti-container').show()
         setTimeout(function() {
