@@ -22,7 +22,6 @@ $(document).ready(function() {
         }, 9000)
     }
 
-    setupEvents();
 
 });
 
@@ -42,6 +41,8 @@ function hideLoading(){
 function initializeFunction() {
     getColleges()
     getEvents()
+    setupEvents();
+    setupWorkshops();
 }
 
 function getColleges(cb){
@@ -75,9 +76,22 @@ function getEventsByCategory(cat,cb){
         if(err)
             return cb(err)
         var catEvents = events.filter(function(event){
-            return event.category == cat
+            return event.category == cat && !event.isWorkshop
         })
         cb(null,catEvents)
+    })
+}
+
+function getWorkshops(cb){
+    getEvents(function(err,events){
+        if(err)
+            return cb(err)
+        var workshops = events.filter(function(event){
+            if(window.isDebug)
+                return event.category == 'CS'
+            return event.isWorkshop
+        })
+        cb(null,workshops)
     })
 }
 
@@ -104,6 +118,14 @@ function setupEvents(){
             new grid3D(document.getElementById('grid3d'));
         })
     }
+}
+
+function setupWorkshops(){
+    getWorkshops(function(err,workshops){
+        if(err)
+            return setupWorkshops()
+        console.log(workshops)
+    })
 }
 
 function initializeParticles() {
