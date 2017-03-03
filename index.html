@@ -1181,17 +1181,19 @@
 					</div>
 				</div><!-- /grid-wrap -->
 				<div class="content">
-					<div>
-						<div class="dummy-img"></div>
-						<p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
-						<p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+                    {{for events}}
+					<div class="event-modal">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="event-modal-img">
+                                    <img src="{{:image}}" class="img-responsive" alt=":name"/>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="event-modal-name">{{:name}}</h3>
 					</div>
-					<div>
-						<div class="dummy-img"></div>
-						<p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
-						<p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
-					</div>
-					<span class="icon close-content heavy rounded close"></span>
+                    {{/for}}
+                    <span class="icon close-content heavy rounded close"></span>
 				</div>
 			</section>
     </script>
