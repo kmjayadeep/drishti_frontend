@@ -16,14 +16,8 @@ body {
 .main {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    display: table;
-    position: relative;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    width: 100vw;
+    height: 100vh;
 }
 
 #preloader {
@@ -470,33 +464,14 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     /*background-color: #50514f;*/
     width: 100%;
     height: 100%;
-    display: table;
-    position: relative;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
 }
 
 .events {
     font-family: 'Oswald', sans-serif;
     background-color: #237b9f;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: table;
-    position: relative;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center center;
-
-  background-attachment: scroll;
-  background-position:;
-  background-size: contain;
-
 }
 
 a {
@@ -869,7 +844,15 @@ nav input:checked ~ .has-child .name:after {
     text-align: left;
     font-size: 1.2em;
 }
-
+.events-body{
+    width: calc(100vw - 215px);
+    height: calc(100vh - 100px);
+    float:right;
+}
+.events-body img{
+    width: 100%;
+    height: 100%;
+}
 h1.events-head{
     /*font-family: 'Playfair Display', serif;*/
     color:white;
@@ -977,6 +960,7 @@ h1.events-head{
         width: 200px;
         padding: 0;
         margin: 0;
+        float:left;
     }
     .masthead .brand-container {
         padding: 10px 0 50px 10px;
