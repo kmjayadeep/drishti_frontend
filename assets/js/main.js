@@ -304,53 +304,43 @@ function initFirebase() {
     };
     firebase.initializeApp(config);
 
-    // FirebaseUI config.
-    var uiConfig = {
-        // signInSuccessUrl: 'index.html',
-        signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-            // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-            // firebase.auth.EmailAuthProvider.PROVIDER_ID
-        ],
-        // Terms of service url.
-        // tosUrl: '<your-tos-url>'
-        callbacks: {
-            signInSuccess: function(currentUser, credential, redirectUrl) {
-                // Do something.
-                console.log("sign in success");
-                console.log(currentUser);
-                // Return type determines whether we continue the redirect automatically
-                // or whether we leave that to developer to handle.
-                return true;
-            }
-        },
-        // credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
-        // Query parameter name for mode.
-        queryParameterForWidgetMode: 'mode',
-        // Query parameter name for sign in success url.
-        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-        signInFlow: 'popup',
-        signInSuccessUrl: 'index.html',
-        signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        ],
-    };
-
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            $('#login').hide()
-            $('#loggedIn').show()
-            localStorage.user = JSON.stringify(user)
-            $('.account-name').html(user.displayName)
             user.getToken().then(function(accessToken) {
                 console.log('got token')
-                $('#myModal').modal('show');
+                showLoading()
+                $.post(window.serverUrl + 'student/login', {
+                        idToken: accessToken
+                    }, function(data, status) {
+                        if (status != 'success'){
+                            hideLoading()
+                            return;
+                        }
+                        console.log(data)
+                        if (data.registered) {
+                            $('#login').hide()
+                            $('#loggedIn').show()
+                            localStorage.user = JSON.stringify(data)
+                            $('.account-name').html(user.name)
+                        }else{
+                            getColleges(function(err,colleges){
+                                hideLoading()
+                                if(err){
+                                    //handle
+                                    return;
+                                }
+                                colleges.push({
+                                    id:0,
+                                    name:'Select College'
+                                })
+                                var tmpl = $.templates('<option value="{{:id}}">{{:name}}</option>');
+                                var col = tmpl.render(colleges)
+                                $('#inputcollege').html(col)
+                                $('#inputcollege').val(0)
+                                $('#registerModal').modal('show');
+                            })
+                        }
+                    })
             });
         } else {
             console.log('no user')
@@ -378,5 +368,23 @@ function initFirebase() {
         }, function(error) {
             console.error('Sign Out Error', error);
         });
+    })
+
+    $('.register-button').click(function(){
+        var college = $('#inputcollege').val()
+        var phone = $('#inputphone').val()
+        var sexInput = $('.inputsex')
+        var sex = sexInput[0].checked ? 'male' : 'female'
+        var acco = $('#inputacco').is(':checked')
+        if(acco)
+            acco  = sex
+        else
+            acco = 'none'
+        var data = {
+            phone:phone,
+            collegeId:college,
+            accomodation:acco
+        }
+        console.log(data)
     })
 }

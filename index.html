@@ -37,6 +37,61 @@
         </div>
         <div id="cn-overlay" class="cn-overlay"></div>
     </div>
+
+    <div class="modal fade" id="registerModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <h4 class="modal-title">Registration Details</h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                    <form>
+                        <div class="form-group">
+                            <label for="inputcollege">College</label>
+                            <select name="college" id="inputcollege" class="form-control">
+                                <option name="1">Select college</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputphone">Phone</label>
+                            <input type="text" class="form-control" id="inputphone">
+                        </div>
+                        <label>Sex</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sex" id="inputsexmale" class="inputsex" value="male" checked>
+                                Male
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sex" id="inputsexfemale" value="female" class="inputsex" checked>
+                                Female
+                            </label>
+                        </div>
+                        <label>Accomodation</label>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="inputacco" class="">
+                                    Accomodation Required
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                    </button>
+
+                    <button type="button" class="btn btn-primary register-button">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <section id="onepage">
         <section class="main section">
             <div id="dexter" class="dexter"></div>
@@ -71,45 +126,6 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Registration Details</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Mail</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">College</label>
-                                    <input type="text" class="form-control" id="pwd">
-                                </div>
-                                <div class="form-group">
-                                    <label for="acc">Accomodation</label>
-                                    <label>
-                                    <input type="radio"> YES</label>
-                                    <label>
-                                    <input type="radio"> NO</label>
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-            <!-- SAJIN -->
         </section>
 
 
@@ -357,7 +373,7 @@
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/about.js"></script>
     <script src="assets/js/jquery.onepage-scroll.min.js"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script id="eventsTemplate" type="text/x-jsrender">
         <section class="grid3d vertical" id="grid3d">
             <div class="grid-wrap">
