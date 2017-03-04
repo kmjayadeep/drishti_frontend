@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
-
-
-
 body {
     padding: 0;
     margin: 0;
@@ -9,7 +6,7 @@ body {
     pointer-events: auto !important;
 }
 
-.section-head{
+.section-head {
     text-align: center;
     font-family: "Oswald"
 }
@@ -88,7 +85,7 @@ old drishti start
     bottom: 0px;
     left: 10px;
     background-image: url("../images/dexter_sprite.png");
-    animation-name: logo-animation,movement;
+    animation-name: logo-animation, movement;
     animation-duration: 8s;
     /*animation-delay: 1s;*/
     animation-timing-function: steps(53, start);
@@ -106,13 +103,13 @@ old drishti start
     from {
         left: 10px;
     }
-    20%{
+    20% {
         left: 10px;
     }
-    40%{
+    40% {
         left: 200px;
     }
-    70%{
+    70% {
         left: 200px;
     }
     to {
@@ -122,7 +119,8 @@ old drishti start
 
 @keyframes logo-animation {
     from {
-        background-position: 0px bottom;;
+        background-position: 0px bottom;
+        ;
     }
     to {
         background-position: -9820px bottom;
@@ -499,207 +497,207 @@ nav div.nav-container {
     display: table-row;
 }
 
-nav div.nav-container > div {
+nav div.nav-container>div {
     display: table-cell;
 }
 
-nav div.nav-container > div:nth-of-type(10n+1) .slide,
-nav div.nav-container > div:nth-of-type(10n+1) a {
+nav div.nav-container>div:nth-of-type(10n+1) .slide,
+nav div.nav-container>div:nth-of-type(10n+1) a {
     border-color: #8cc63f;
 }
 
-nav div.nav-container > div:nth-of-type(10n+1) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+1) a:hover {
+nav div.nav-container>div:nth-of-type(10n+1) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+1) a:hover {
     color: #567b24;
 }
 
-nav div.nav-container > div:nth-of-type(10n+1) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+1) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+1) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+1) a~.child-menu {
     background-color: #a4d266;
 }
 
-nav div.nav-container > div:nth-of-type(10n+1) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+1) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+1) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+1) .slide.active~label {
     color: #8cc63f;
 }
 
-nav div.nav-container > div:nth-of-type(10n+2) .slide,
-nav div.nav-container > div:nth-of-type(10n+2) a {
+nav div.nav-container>div:nth-of-type(10n+2) .slide,
+nav div.nav-container>div:nth-of-type(10n+2) a {
     border-color: #ef3724;
 }
 
-nav div.nav-container > div:nth-of-type(10n+2) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+2) a:hover {
+nav div.nav-container>div:nth-of-type(10n+2) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+2) a:hover {
     color: #a11a0c;
 }
 
-nav div.nav-container > div:nth-of-type(10n+2) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+2) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+2) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+2) a~.child-menu {
     background-color: #f26254;
 }
 
-nav div.nav-container > div:nth-of-type(10n+2) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+2) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+2) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+2) .slide.active~label {
     color: #ef3724;
 }
 
-nav div.nav-container > div:nth-of-type(10n+3) .slide,
-nav div.nav-container > div:nth-of-type(10n+3) a {
+nav div.nav-container>div:nth-of-type(10n+3) .slide,
+nav div.nav-container>div:nth-of-type(10n+3) a {
     border-color: #ffa61a;
 }
 
-nav div.nav-container > div:nth-of-type(10n+3) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+3) a:hover {
+nav div.nav-container>div:nth-of-type(10n+3) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+3) a:hover {
     color: #b36d00;
 }
 
-nav div.nav-container > div:nth-of-type(10n+3) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+3) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+3) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+3) a~.child-menu {
     background-color: #ffba4d;
 }
 
-nav div.nav-container > div:nth-of-type(10n+3) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+3) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+3) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+3) .slide.active~label {
     color: #ffa61a;
 }
 
-nav div.nav-container > div:nth-of-type(10n+4) .slide,
-nav div.nav-container > div:nth-of-type(10n+4) a {
+nav div.nav-container>div:nth-of-type(10n+4) .slide,
+nav div.nav-container>div:nth-of-type(10n+4) a {
     border-color: #1ab1ff;
 }
 
-nav div.nav-container > div:nth-of-type(10n+4) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+4) a:hover {
+nav div.nav-container>div:nth-of-type(10n+4) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+4) a:hover {
     color: #0076b3;
 }
 
-nav div.nav-container > div:nth-of-type(10n+4) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+4) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+4) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+4) a~.child-menu {
     background-color: #4dc2ff;
 }
 
-nav div.nav-container > div:nth-of-type(10n+4) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+4) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+4) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+4) .slide.active~label {
     color: #1ab1ff;
 }
 
-nav div.nav-container > div:nth-of-type(10n+5) .slide,
-nav div.nav-container > div:nth-of-type(10n+5) a {
+nav div.nav-container>div:nth-of-type(10n+5) .slide,
+nav div.nav-container>div:nth-of-type(10n+5) a {
     border-color: #FC1DCF;
 }
 
-nav div.nav-container > div:nth-of-type(10n+5) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+5) a:hover {
+nav div.nav-container>div:nth-of-type(10n+5) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+5) a:hover {
     color: #b1028d;
 }
 
-nav div.nav-container > div:nth-of-type(10n+5) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+5) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+5) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+5) a~.child-menu {
     background-color: #fd4fda;
 }
 
-nav div.nav-container > div:nth-of-type(10n+5) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+5) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+5) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+5) .slide.active~label {
     color: #FC1DCF;
 }
 
-nav div.nav-container > div:nth-of-type(10n+6) .slide,
-nav div.nav-container > div:nth-of-type(10n+6) a {
+nav div.nav-container>div:nth-of-type(10n+6) .slide,
+nav div.nav-container>div:nth-of-type(10n+6) a {
     border-color: #8cc63f;
 }
 
-nav div.nav-container > div:nth-of-type(10n+6) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+6) a:hover {
+nav div.nav-container>div:nth-of-type(10n+6) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+6) a:hover {
     color: #567b24;
 }
 
-nav div.nav-container > div:nth-of-type(10n+6) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+6) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+6) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+6) a~.child-menu {
     background-color: #a4d266;
 }
 
-nav div.nav-container > div:nth-of-type(10n+6) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+6) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+6) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+6) .slide.active~label {
     color: #8cc63f;
 }
 
-nav div.nav-container > div:nth-of-type(10n+7) .slide,
-nav div.nav-container > div:nth-of-type(10n+7) a {
+nav div.nav-container>div:nth-of-type(10n+7) .slide,
+nav div.nav-container>div:nth-of-type(10n+7) a {
     border-color: #ef3724;
 }
 
-nav div.nav-container > div:nth-of-type(10n+7) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+7) a:hover {
+nav div.nav-container>div:nth-of-type(10n+7) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+7) a:hover {
     color: #a11a0c;
 }
 
-nav div.nav-container > div:nth-of-type(10n+7) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+7) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+7) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+7) a~.child-menu {
     background-color: #f26254;
 }
 
-nav div.nav-container > div:nth-of-type(10n+7) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+7) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+7) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+7) .slide.active~label {
     color: #ef3724;
 }
 
-nav div.nav-container > div:nth-of-type(10n+8) .slide,
-nav div.nav-container > div:nth-of-type(10n+8) a {
+nav div.nav-container>div:nth-of-type(10n+8) .slide,
+nav div.nav-container>div:nth-of-type(10n+8) a {
     border-color: #ffa61a;
 }
 
-nav div.nav-container > div:nth-of-type(10n+8) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+8) a:hover {
+nav div.nav-container>div:nth-of-type(10n+8) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+8) a:hover {
     color: #b36d00;
 }
 
-nav div.nav-container > div:nth-of-type(10n+8) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+8) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+8) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+8) a~.child-menu {
     background-color: #ffba4d;
 }
 
-nav div.nav-container > div:nth-of-type(10n+8) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+8) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+8) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+8) .slide.active~label {
     color: #ffa61a;
 }
 
-nav div.nav-container > div:nth-of-type(10n+9) .slide,
-nav div.nav-container > div:nth-of-type(10n+9) a {
+nav div.nav-container>div:nth-of-type(10n+9) .slide,
+nav div.nav-container>div:nth-of-type(10n+9) a {
     border-color: #1ab1ff;
 }
 
-nav div.nav-container > div:nth-of-type(10n+9) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+9) a:hover {
+nav div.nav-container>div:nth-of-type(10n+9) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+9) a:hover {
     color: #0076b3;
 }
 
-nav div.nav-container > div:nth-of-type(10n+9) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+9) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+9) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+9) a~.child-menu {
     background-color: #4dc2ff;
 }
 
-nav div.nav-container > div:nth-of-type(10n+9) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+9) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+9) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+9) .slide.active~label {
     color: #1ab1ff;
 }
 
-nav div.nav-container > div:nth-of-type(10n+10) .slide,
-nav div.nav-container > div:nth-of-type(10n+10) a {
+nav div.nav-container>div:nth-of-type(10n+10) .slide,
+nav div.nav-container>div:nth-of-type(10n+10) a {
     border-color: #FC1DCF;
 }
 
-nav div.nav-container > div:nth-of-type(10n+10) .slide:hover,
-nav div.nav-container > div:nth-of-type(10n+10) a:hover {
+nav div.nav-container>div:nth-of-type(10n+10) .slide:hover,
+nav div.nav-container>div:nth-of-type(10n+10) a:hover {
     color: #b1028d;
 }
 
-nav div.nav-container > div:nth-of-type(10n+10) .slide ~ .child-menu,
-nav div.nav-container > div:nth-of-type(10n+10) a ~ .child-menu {
+nav div.nav-container>div:nth-of-type(10n+10) .slide~.child-menu,
+nav div.nav-container>div:nth-of-type(10n+10) a~.child-menu {
     background-color: #fd4fda;
 }
 
-nav div.nav-container > div:nth-of-type(10n+10) input:checked ~ label,
-nav div.nav-container > div:nth-of-type(10n+10) .slide.active ~ label {
+nav div.nav-container>div:nth-of-type(10n+10) input:checked~label,
+nav div.nav-container>div:nth-of-type(10n+10) .slide.active~label {
     color: #FC1DCF;
 }
 
@@ -818,7 +816,7 @@ nav .child-menu a {
     font-size: 0.9375em;
 }
 
-nav input:checked ~ .child-menu {
+nav input:checked~.child-menu {
     max-height: 100px;
     -moz-transition-property: max-height;
     -o-transition-property: max-height;
@@ -834,7 +832,7 @@ nav input:checked ~ .child-menu {
     transition-timing-function: ease-in;
 }
 
-nav input:checked ~ .has-child .name:after {
+nav input:checked~.has-child .name:after {
     -moz-transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -845,45 +843,51 @@ nav input:checked ~ .has-child .name:after {
     text-align: left;
     font-size: 1.2em;
 }
-.events-body{
+
+.events-body {
     width: calc(100vw - 215px);
     height: calc(100vh - 100px);
-    float:right;
+    float: right;
 }
-.events-bg{
+
+.events-bg {
     width: 100%;
     height: 100%;
 }
-.events-grid{
+
+.events-grid {
     height: 100%;
     overflow-y: scroll;
     margin-right: 10px;
 }
 
-.events-grid::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px #237b9f;
-	box-shadow: inset 0 0 6px #237b9f;
-	background-color: #fff;
+.events-grid::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #237b9f;
+    box-shadow: inset 0 0 6px #237b9f;
+    background-color: #fff;
 }
 
-.events-grid::-webkit-scrollbar
-{
-	width: 5px;
-	background-color: #fff;
+.events-grid::-webkit-scrollbar {
+    width: 5px;
+    background-color: #fff;
 }
 
-.events-grid::-webkit-scrollbar-thumb
-{
-	background-color: #237b9f;
-	border: 2px solid #fff;
+.events-grid::-webkit-scrollbar-thumb {
+    background-color: #237b9f;
+    border: 2px solid #fff;
 }
 
+.event-grid-title {
+    text-align: center;
+    font-family: "Oswald";
+    color: white;
+    padding: 10px;
+    font-size: 1.1em;
+}
 
-
-h1.events-head{
+h1.events-head {
     /*font-family: 'Playfair Display', serif;*/
-    color:white;
+    color: white;
 }
 
 @media only screen and (min-width: 48.0625em) {
@@ -894,11 +898,11 @@ h1.events-head{
     nav div.nav-container {
         display: block;
     }
-    nav div.nav-container > div {
+    nav div.nav-container>div {
         display: block;
         margin: 5px 0;
     }
-    nav div.nav-container > div:hover .slide {
+    nav div.nav-container>div:hover .slide {
         border-left-width: 55px;
         -moz-transition-delay: 0;
         -o-transition-delay: 0;
@@ -931,10 +935,10 @@ h1.events-head{
         padding: 3px 0 3px 10px;
         font-size: 0.8125em;
     }
-    nav input:checked ~ div.child-menu {
+    nav input:checked~div.child-menu {
         max-height: 120px;
     }
-    nav input:checked ~ .slide {
+    nav input:checked~.slide {
         border-width: 55px;
     }
 }
@@ -988,7 +992,7 @@ h1.events-head{
         width: 200px;
         padding: 0;
         margin: 0;
-        float:left;
+        float: left;
     }
     .masthead .brand-container {
         padding: 10px 0 50px 10px;
@@ -1029,26 +1033,26 @@ h1.events-head{
     clear: both;
 }
 
-.container > header,
+.container>header,
 .codrops-top {
     font-family: 'Lato', Arial, sans-serif;
 }
 
-.container > header {
+.container>header {
     margin: 0 auto;
     padding: 2em;
     text-align: center;
     background: rgba(0, 0, 0, 0.01);
 }
 
-.container > header h1 {
+.container>header h1 {
     font-size: 2.625em;
     line-height: 1.3;
     margin: 0;
     font-weight: 300;
 }
 
-.container > header span {
+.container>header span {
     display: block;
     font-size: 60%;
     opacity: 0.7;
@@ -1405,49 +1409,56 @@ Media Queries
 
 /* contact */
 
-
 .close.heavy {
-  position: fixed;
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  top:10px;
-  right:20px;
+    position: fixed;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    top: 10px;
+    right: 20px;
+}
 
+.close.heavy:hover::before,
+.close.heavy:hover::after {
+    background: #333;
 }
-.close.heavy:hover::before, .close.heavy:hover::after {
-  background: #333;
-}
-.close.heavy::before, .close.heavy::after {
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  top: 50%;
-  left: 0;
-  margin-top: -1px;
-  background: #7d7d7d;
-}
-.close.heavy::before {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
+
+.close.heavy::before,
 .close.heavy::after {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-.close.heavy.heavy::before, .close.heavy.heavy::after {
-  height: 12px;
-  margin-top: -6px;
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #7d7d7d;
 }
 
-.close.heavy.rounded::before, .close.heavy.rounded::after {
-  border-radius: 5px;
+.close.heavy::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close.heavy::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.close.heavy.heavy::before,
+.close.heavy.heavy::after {
+    height: 12px;
+    margin-top: -6px;
+}
+
+.close.heavy.rounded::before,
+.close.heavy.rounded::after {
+    border-radius: 5px;
 }
