@@ -177,6 +177,7 @@ old drishti start
 
 #social #loggedIn {
     display: none;
+    margin-top: 10px;
 }
 
 #social #loggedIn p {
@@ -214,7 +215,10 @@ old drishti start
 #login .icons-container:after {
     clear: both;
 }
-
+.logout-button{
+    background: #fd615f;
+    color: white;
+}
 
 /*Social end*/
 

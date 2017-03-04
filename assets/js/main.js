@@ -346,6 +346,8 @@ function initFirebase() {
         if (user) {
             $('#login').hide()
             $('#loggedIn').show()
+            localStorage.user = JSON.stringify(user)
+            $('.account-name').html(user.displayName)
             user.getToken().then(function(accessToken) {
                 console.log('got token')
                 $('#myModal').modal('show');
