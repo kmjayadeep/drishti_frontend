@@ -6,13 +6,13 @@ $(document).ready(function() {
     initializeFunction()
     setupNavigation()
 
-    if (!window.isDebug&&$(window).width() >= 640) {
+    if (!window.isDebug && $(window).width() >= 640) {
         $('#dexter').show()
         $('#old-drishti-container').show()
         setTimeout(function() {
             window.scrollTo(0, 0)
             $("body").css("overflow-y", "hidden");
-        },100)
+        }, 100)
         setTimeout(function() {
             $('#old-drishti-container').slideUp()
             $("body").css("overflow-y", "scroll");
@@ -25,15 +25,15 @@ $(document).ready(function() {
 
 });
 
-function showLoading(){
+function showLoading() {
     $('#preloader').removeClass('hide')
     $('#preloader').show()
 }
 
-function hideLoading(){
+function hideLoading() {
     $('#preloader').addClass('hide')
     setTimeout(function() {
-        if(isDebug)
+        if (isDebug)
             $('#preloader').hide();
     }, 2000)
 }
@@ -45,74 +45,75 @@ function initializeFunction() {
     setupWorkshops();
 }
 
-function getColleges(cb){
-    if(typeof window.colleges =='object'&&typeof cb=='function')
-        return cb(null,window.colleges)
-    $.get(window.serverUrl+'public/college',function(data,status){
-        if(status=='success'){
+function getColleges(cb) {
+    if (typeof window.colleges == 'object' && typeof cb == 'function')
+        return cb(null, window.colleges)
+    $.get(window.serverUrl + 'public/college', function(data, status) {
+        if (status == 'success') {
             window.colleges = data;
-            if(typeof cb=='function')
-                cb(null,data)
-        }else if(typeof cb=='function')
+            if (typeof cb == 'function')
+                cb(null, data)
+        } else if (typeof cb == 'function')
             cb('Network error')
     })
 }
 
-function getEvents(cb){
-    if(typeof window.allEvents =='object'&&typeof cb=='function')
-        return cb(null,window.allEvents)
-    $.get(window.serverUrl+'public/event',function(data,status){
-        if(status=='success'){
+function getEvents(cb) {
+    if (typeof window.allEvents == 'object' && typeof cb == 'function')
+        return cb(null, window.allEvents)
+    $.get(window.serverUrl + 'public/event', function(data, status) {
+        if (status == 'success') {
             window.allEvents = data;
-            if(typeof cb=='function')
-                cb(null,data)
-        }else if(typeof cb=='function')
+            if (typeof cb == 'function')
+                cb(null, data)
+        } else if (typeof cb == 'function')
             cb('Network error')
     })
 }
 
-function getEventsByCategory(cat,cb){
-    getEvents(function(err,events){
-        if(err)
+function getEventsByCategory(cat, cb) {
+    getEvents(function(err, events) {
+        if (err)
             return cb(err)
-        var catEvents = events.filter(function(event){
+        var catEvents = events.filter(function(event) {
             return event.category == cat && !event.isWorkshop
         })
-        cb(null,catEvents)
+        cb(null, catEvents)
     })
 }
 
-function getWorkshops(cb){
-    getEvents(function(err,events){
-        if(err)
+function getWorkshops(cb) {
+    getEvents(function(err, events) {
+        if (err)
             return cb(err)
-        var workshops = events.filter(function(event){
-            if(window.isDebug)
+        var workshops = events.filter(function(event) {
+            if (window.isDebug)
                 return event.category == 'CS'
             return event.isWorkshop
         })
-        cb(null,workshops)
+        cb(null, workshops)
     })
 }
 
-function setupEvents(){
+function setupEvents() {
     $('.slide').click(loadEvents);
+
     function loadEvents(event) {
         event.preventDefault();
         $('.events-bg').hide()
         var category = $(this).children().data('category')
         console.log(category)
         showLoading()
-        getEventsByCategory(category,function(err,events){
+        getEventsByCategory(category, function(err, events) {
             hideLoading()
-            if(err){
+            if (err) {
                 //handle err
                 return;
             }
             console.log(events)
             var tmpl = $.templates("#eventsTemplate");
             var grid = tmpl.render({
-                events:events
+                events: events
             })
             $('.events-grid').html(grid)
             new grid3D(document.getElementById('grid3d'));
@@ -120,9 +121,9 @@ function setupEvents(){
     }
 }
 
-function setupWorkshops(){
-    getWorkshops(function(err,workshops){
-        if(err)
+function setupWorkshops() {
+    getWorkshops(function(err, workshops) {
+        if (err)
             return setupWorkshops()
         console.log(workshops)
         var tmpl = $.templates("#workshopTemplate");
@@ -183,7 +184,7 @@ function initializeParticles() {
             },
             "move": {
                 "enable": true,
-                "speed": 6,
+                "speed": 3,
                 "direction": "none",
                 "random": false,
                 "straight": false,
@@ -398,23 +399,6 @@ window.addEventListener('load', function() {
     initApp()
 });
 
-
-
-
-
-
-
-/**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2016, Codrops
- * http://www.codrops.com
- */
-;
 (function(window) {
 
     'use strict';
