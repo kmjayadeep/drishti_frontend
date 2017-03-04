@@ -18,7 +18,7 @@ $(document).ready(function() {
             $("body").css("overflow-y", "scroll");
             $('#onepage').onepage_scroll({
                 sectionContainer: ".section",
-                loop:false
+                loop: false
             })
             setTimeout(function() {
                 $('#dexter').fadeOut()
@@ -27,7 +27,7 @@ $(document).ready(function() {
     } else {
         $('#onepage').onepage_scroll({
             sectionContainer: ".section",
-            loop:false
+            loop: false
         })
     }
 });
@@ -46,6 +46,7 @@ function hideLoading() {
 }
 
 function initializeFunction() {
+    initFirebase()
     getColleges()
     getEvents()
     setupEvents();
@@ -293,115 +294,87 @@ function setupNavigation() {
 }
 
 
-// Initialize Firebase
-var config = {
-    apiKey: 'AIzaSyCvN9K2cdfUf4H8BIr8vqRhdtGV_ca2UIs',
-    authDomain: 'drishti-bd782.firebaseapp.com',
-    databaseURL: 'https://drishti-bd782.firebaseio.com',
-    storageBucket: 'drishti-bd782.appspot.com',
-    messagingSenderId: '37494669483',
-};
-firebase.initializeApp(config);
+function initFirebase() {
+    var config = {
+        apiKey: 'AIzaSyCvN9K2cdfUf4H8BIr8vqRhdtGV_ca2UIs',
+        authDomain: 'drishti-bd782.firebaseapp.com',
+        databaseURL: 'https://drishti-bd782.firebaseio.com',
+        storageBucket: 'drishti-bd782.appspot.com',
+        messagingSenderId: '37494669483',
+    };
+    firebase.initializeApp(config);
 
-// FirebaseUI config.
-var uiConfig = {
-    // signInSuccessUrl: 'index.html',
-    signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        // firebase.auth.EmailAuthProvider.PROVIDER_ID
-    ],
-    // Terms of service url.
-    // tosUrl: '<your-tos-url>'
-    callbacks: {
-        signInSuccess: function(currentUser, credential, redirectUrl) {
-            // Do something.
-            console.log("sign in success");
-            console.log(currentUser);
-            document.getElementById("firebaseui-auth-container").style.visibility = "hidden";
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            return true;
+    // FirebaseUI config.
+    var uiConfig = {
+        // signInSuccessUrl: 'index.html',
+        signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            // firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        // tosUrl: '<your-tos-url>'
+        callbacks: {
+            signInSuccess: function(currentUser, credential, redirectUrl) {
+                // Do something.
+                console.log("sign in success");
+                console.log(currentUser);
+                // Return type determines whether we continue the redirect automatically
+                // or whether we leave that to developer to handle.
+                return true;
+            }
+        },
+        // credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+        // Query parameter name for mode.
+        queryParameterForWidgetMode: 'mode',
+        // Query parameter name for sign in success url.
+        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        signInSuccessUrl: 'index.html',
+        signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        ],
+    };
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            $('#login').hide()
+            $('#loggedIn').show()
+            user.getToken().then(function(accessToken) {
+                console.log('got token')
+                $('#myModal').modal('show');
+            });
+        } else {
+            console.log('no user')
+            $('#login').show()
+            $('#loggedIn').hide()
         }
-    },
-    credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
-    // Query parameter name for mode.
-    queryParameterForWidgetMode: 'mode',
-    // Query parameter name for sign in success url.
-    queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    signInFlow: 'popup',
-    signInSuccessUrl: 'index.html',
-    signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    ],
-};
+    }, function(error) {
+        console.log(error);
+        $('#login').show()
+        $('#loggedIn').hide()
+    });
 
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui-auth-container', uiConfig);
+    $('.login-button').click(function() {
+        var provider = $(this).data('provider')
+        if (provider == 'google')
+            var provider = new firebase.auth.GoogleAuthProvider();
+        else
+            var provider = new firebase.auth.FacebookAuthProvider();
 
-
-
-
-
-
-mySignOut = function() {
+        firebase.auth().signInWithPopup(provider)
+    })
+    $('.logout-button').click(function() {
         firebase.auth().signOut().then(function() {
             console.log('Signed Out');
         }, function(error) {
             console.error('Sign Out Error', error);
         });
-    },
-    initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                var displayName = user.displayName;
-                var email = user.email;
-                var emailVerified = user.emailVerified;
-                var photoURL = user.photoURL;
-                var uid = user.uid;
-                var providerData = user.providerData;
-                user.getToken().then(function(accessToken) {
-
-                    // document.getElementById('sign-in-status').textContent = 'Signed in';
-                    document.getElementById("firebaseui-auth-container").style.visibility = "hidden";
-                    document.getElementById('sign-in').style.visibility = "visible";
-                    document.getElementById('sign-in').textContent = 'Sign out';
-
-                    // document.getElementById("myModal").showModal();
-                    $('#myModal').modal('show');
-                    // document.getElementById('account-details').textContent = JSON.stringify({
-                    //   displayName: displayName,
-                    //   email: email,
-                    //   emailVerified: emailVerified,
-                    //   photoURL: photoURL,
-                    //   uid: uid,
-                    //   accessToken: accessToken,
-                    //   providerData: providerData
-                    // }, null, '  ');
-                });
-            } else {
-                // User is signed out.
-                // document.getElementById('sign-in-status').textContent = 'Signed out';
-
-                document.getElementById("firebaseui-auth-container").style.visibility = "visible";
-
-                document.getElementById('sign-in').style.visibility = "hidden";
-                // document.getElementById('account-details').textContent = 'null';
-            }
-        }, function(error) {
-            console.log(error);
-        });
-    };
-
-window.addEventListener('load', function() {
-    initApp()
-});
+    })
+}
