@@ -88,7 +88,7 @@ function getWorkshops(cb) {
             return cb(err)
         var workshops = events.filter(function(event) {
             if (window.isDebug)
-                return event.category == 'CS'
+                return event.category == 'ME'
             return event.isWorkshop
         })
         cb(null, workshops)

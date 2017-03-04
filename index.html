@@ -372,14 +372,13 @@
     <script id="workshopTemplate" type="text/x-jsrender">
         <li class="scene">
             <div class="movie" onclick="return true">
-                <div class="poster"></div>
+                <div class="poster" style="background-image:url({{:image}})"></div>
                 <div class="info">
                     <header>
                         <h1>{{:name}}</h1>
                     </header>
-                    <p>
-                        {{:description}}
-                    </p>
+                    {{:description}}
+                    <button class="workshop-read-more">Read More</button>
                 </div>
             </div>
         </li>
