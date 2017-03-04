@@ -19,72 +19,13 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
 
     <link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/onepage-scroll.css" />
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Playfair+Display:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="assets/js/modernizr.custom.js"></script>
 </head>
 
 <body>
-    <section class="main">
-        <div id="dexter" class="dexter"></div>
-        <div id="old-drishti-container">
-            <div id="old-drishti">
-                <img id="old-presents" src="assets/images/old_presents.png" />
-                <img id="old-logo" src="assets/images/old_logo.png" />
-            </div>
-        </div>
-        <div id="new-drishti-container">
-            <div id="main-logo">
-                <img class="logo" src="assets/images/logo.png" />
-            </div>
-        </div>
-        <!-- SAJIN -->
-        <!-- <button  id="sign-in-status" style="color:white; margin-left: 1000px;"></button> -->
-        <button id="sign-in" onclick="mySignOut()" style="border-color:black;background-color:black; color:white; position:absolute;right: 0;top: 0;"></button>
-        <!-- <div id="account-details"></div> -->
-        <div id="firebaseui-auth-container" style="position:absolute;right: 0;top: 0;"></div<div id="firebaseui-auth-container"></div>
-        <!-- <div id="loader">Loading...</div> -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Registration Details</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p></p>
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Mail</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">College</label>
-                                <input type="text" class="form-control" id="pwd">
-                            </div>
-                            <div class="form-group">
-                                <label for="acc">Accomodation</label>
-                                <label>
-                                    <input type="radio"> YES</label>
-                                <label>
-                                    <input type="radio"> NO</label>
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-        <!-- SAJIN -->
-    </section>
-
     <div class="navigation">
         <button class="cn-button" id="cn-button">+</button>
         <div class="cn-wrapper" id="cn-wrapper">
@@ -98,233 +39,298 @@
         </div>
         <div id="cn-overlay" class="cn-overlay"></div>
     </div>
-
-    <section id="about" class="about">
-        <div class="demo-2">
-            <!-- Initial markup -->
-            <div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">
-                <h1 style="font-family: 'Merriweather', serif;">About Section</h1>
+    <section id="onepage">
+        <section class="main section">
+            <div id="dexter" class="dexter"></div>
+            <div id="old-drishti-container">
+                <div id="old-drishti">
+                    <img id="old-presents" src="assets/images/old_presents.png" />
+                    <img id="old-logo" src="assets/images/old_logo.png" />
+                </div>
             </div>
-            <!--<h2 class="trigger-headline trigger-headline--hidden"><span>D</span><span>R</span><span>I</span><span>S</span><span>H</span><span>T</span><span>I</span></h2>-->
-            <div class="bottom-nav">
-                <button class="btn btn--trigger">Show Effect</button>
+            <div id="new-drishti-container">
+                <div id="main-logo">
+                    <img class="logo" src="assets/images/logo.png" />
+                </div>
             </div>
-        </div>
-    </section>
-
-
-
-
-    <section id="events" class="events">
-        <h1 class="events-head section-head">Events</h1>
-        <div class="events-container">
-            <header class="masthead">
-                <nav class="events-nav">
-                    <div class='nav-container'>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="CS">Computer</span>
-                            </a>
+            <!-- SAJIN -->
+            <!-- <button  id="sign-in-status" style="color:white; margin-left: 1000px;"></button> -->
+            <button id="sign-in" onclick="mySignOut()" style="border-color:black;background-color:black; color:white; position:absolute;right: 0;top: 0;"></button>
+            <!-- <div id="account-details"></div> -->
+            <div id="firebaseui-auth-container" style="position:absolute;right: 0;top: 0;"></div<div id="firebaseui-auth-container"></div>
+            <!-- <div id="loader">Loading...</div> -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Registration Details</h4>
                         </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="EE">Electrical</span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="EC">Electronics</span>
-
-                            </a>
-                        </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="ME">Mechanical</span>
-
-                            </a>
-                        </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="ROBO">Robotics</span>
-
-                            </a>
-                        </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="AR">Architectural</span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="ONLINE">Online</span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class='slide' href='#'>
-                                <span class='element' data-category="GEN">General</span>
-                            </a>
+                        <div class="modal-body">
+                            <p></p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Mail</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">College</label>
+                                    <input type="text" class="form-control" id="pwd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="acc">Accomodation</label>
+                                    <label>
+                                    <input type="radio"> YES</label>
+                                    <label>
+                                    <input type="radio"> NO</label>
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
                         </div>
                     </div>
-                </nav>
-            </header>
-            <div class="events-body">
-                <img src="assets/images/events.jpg" class="events-bg" />
-                <div class="events-grid"> </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="workshops" class="workshops">
-        <h1 class="section-head">Workshops</h1>
-        <div class="container">
-            <div class="wrapper">
-                <ul class="stage clearfix workshop-grid">
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="sponsor" class="sponsor">
-        <h1>Sponsor</h1>
-        <div class="container-robo">
-            <div class="leftarm">
-                <div class="hand">
-                    <span class="lefttriangle"></span>
-                    <div class="lhand"></div>
-                    <span class="righttriangle"></span>
-                    <div class="lfinger">
-                        <div class="lcf"></div>
-                        <div class="leftwrist">
-                            <div class="lw"></div>
-                            <div class="leftelbow">
-                                <div class="celbow"></div>
-                            </div>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-            <div class="rightarm">
-                <div class="mrh1">
-                    <div class="righthand">
-                        <span class="lefttriangle2"></span>
-                        <div class="rhand"></div>
-                        <span class="righttriangle2"></span>
-                        <div class="rfinger">
-                            <div class="rcf">
-                                <div class="envelop">
-                                    <div class="arrowdown"></div>
-                                    <div class="arrowup"></div>
+            <!-- SAJIN -->
+        </section>
+
+
+
+        <section id="about" class="about section">
+            <div class="demo-2">
+                <!-- Initial markup -->
+                <div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">
+                    <h1 style="font-family: 'Merriweather', serif;">About Section</h1>
+                </div>
+                <!--<h2 class="trigger-headline trigger-headline--hidden"><span>D</span><span>R</span><span>I</span><span>S</span><span>H</span><span>T</span><span>I</span></h2>-->
+                <div class="bottom-nav">
+                    <button class="btn btn--trigger">Show Effect</button>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section id="events" class="events section">
+            <h1 class="events-head section-head">Events</h1>
+            <div class="events-container">
+                <header class="masthead">
+                    <nav class="events-nav">
+                        <div class='nav-container'>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="CS">Computer</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="EE">Electrical</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="EC">Electronics</span>
+
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="ME">Mechanical</span>
+
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="ROBO">Robotics</span>
+
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="AR">Architectural</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="ONLINE">Online</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a class='slide' href='#'>
+                                    <span class='element' data-category="GEN">General</span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                <div class="events-body">
+                    <img src="assets/images/events.jpg" class="events-bg" />
+                    <div class="events-grid"> </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workshops" class="workshops section">
+            <h1 class="section-head">Workshops</h1>
+            <div class="container">
+                <div class="wrapper">
+                    <ul class="stage clearfix workshop-grid">
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="sponsor" class="sponsor section">
+            <h1>Sponsor</h1>
+            <div class="container-robo">
+                <div class="leftarm">
+                    <div class="hand">
+                        <span class="lefttriangle"></span>
+                        <div class="lhand"></div>
+                        <span class="righttriangle"></span>
+                        <div class="lfinger">
+                            <div class="lcf"></div>
+                            <div class="leftwrist">
+                                <div class="lw"></div>
+                                <div class="leftelbow">
+                                    <div class="celbow"></div>
                                 </div>
                             </div>
-                            <div class="rightwrist">
-                                <div class="rw"></div>
-                                <div class="rightelbow">
-                                    <div class="relbow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightarm">
+                    <div class="mrh1">
+                        <div class="righthand">
+                            <span class="lefttriangle2"></span>
+                            <div class="rhand"></div>
+                            <span class="righttriangle2"></span>
+                            <div class="rfinger">
+                                <div class="rcf">
+                                    <div class="envelop">
+                                        <div class="arrowdown"></div>
+                                        <div class="arrowup"></div>
+                                    </div>
+                                </div>
+                                <div class="rightwrist">
+                                    <div class="rw"></div>
+                                    <div class="rightelbow">
+                                        <div class="relbow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hbdy">
+                    <div class="bbdy">
+                        <div class="effect1"></div>
+                        <div class="effect2"></div>
+                        <div class="effect3"></div>
+                        <div class="ehbdy">
+                            <div class="opcbdy"></div>
+                            <div class="ebhbdy">
+                                <div class="bebdy">
+                                    <div class="opbdy"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="effect4">
+                            <div class="effectaa"></div>
+                            <div class="effectab"></div>
+                            <div class="effectac"></div>
+                        </div>
+                        <div class="effect5">
+                            <div class="effectba"></div>
+                            <div class="effectbb"></div>
+                            <div class="effectbc"></div>
+                        </div>
+                        <div class="effect6">
+                            <div class="effectca"></div>
+                            <div class="effectcb"></div>
+                            <div class="effectcc"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bdy"></div>
+                <div class="lleg">
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="leftfoot">
+                        <div class="wrc">
+                            <div class="brc">
+                                <div class="wrc2">
+                                    <div class="brc2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="middleleg">
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="middlefoot">
+                        <div class="wrc">
+                            <div class="brc">
+                                <div class="wrc2">
+                                    <div class="brc2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightleg">
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="legs"></div>
+                    <div class="rightfoot">
+                        <div class="wrc">
+                            <div class="brc">
+                                <div class="wrc2">
+                                    <div class="brc2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hbdy">
-                <div class="bbdy">
-                    <div class="effect1"></div>
-                    <div class="effect2"></div>
-                    <div class="effect3"></div>
-                    <div class="ehbdy">
-                        <div class="opcbdy"></div>
-                        <div class="ebhbdy">
-                            <div class="bebdy">
-                                <div class="opbdy"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="effect4">
-                        <div class="effectaa"></div>
-                        <div class="effectab"></div>
-                        <div class="effectac"></div>
-                    </div>
-                    <div class="effect5">
-                        <div class="effectba"></div>
-                        <div class="effectbb"></div>
-                        <div class="effectbc"></div>
-                    </div>
-                    <div class="effect6">
-                        <div class="effectca"></div>
-                        <div class="effectcb"></div>
-                        <div class="effectcc"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="bdy"></div>
-            <div class="lleg">
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="leftfoot">
-                    <div class="wrc">
-                        <div class="brc">
-                            <div class="wrc2">
-                                <div class="brc2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="middleleg">
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="middlefoot">
-                    <div class="wrc">
-                        <div class="brc">
-                            <div class="wrc2">
-                                <div class="brc2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rightleg">
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="legs"></div>
-                <div class="rightfoot">
-                    <div class="wrc">
-                        <div class="brc">
-                            <div class="wrc2">
-                                <div class="brc2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <h1>Contact</h1>
+        </section>
+
+        <div id="preloader">
+            <!-- place loader here -->
+            loading...
         </div>
+
     </section>
 
-    <section id="contact" class="contact">
-        <h1>Contact</h1>
-    </section>
-
-    <div id="preloader">
-        <!-- place loader here -->
-        loading...
-    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/particles.min.js"></script>
     <script src="assets/js/modernizr-2.6.2.min.js"></script>
@@ -338,6 +344,7 @@
     <script src="assets/js/anime.min.js"></script>
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/about.js"></script>
+    <script src="assets/js/jquery.onepage-scroll.min.js"></script>
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script id="eventsTemplate" type="text/x-jsrender">
         <section class="grid3d vertical" id="grid3d">

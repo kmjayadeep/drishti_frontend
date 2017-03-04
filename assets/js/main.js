@@ -16,13 +16,20 @@ $(document).ready(function() {
         setTimeout(function() {
             $('#old-drishti-container').slideUp()
             $("body").css("overflow-y", "scroll");
+            $('#onepage').onepage_scroll({
+                sectionContainer: ".section",
+                loop:false
+            })
             setTimeout(function() {
                 $('#dexter').fadeOut()
             }, 1000)
         }, 9000)
+    } else {
+        $('#onepage').onepage_scroll({
+            sectionContainer: ".section",
+            loop:false
+        })
     }
-
-
 });
 
 function showLoading() {
