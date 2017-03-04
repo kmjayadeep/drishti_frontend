@@ -37,6 +37,14 @@ function showLoading() {
     $('#preloader').show()
 }
 
+function showError(message) {
+    $('.alert-modal .alert').html(message)
+    $('.alert-modal').show()
+    setTimeout(function() {
+        $('.alert-modal').fadeOut()
+    }, 2000)
+}
+
 function hideLoading() {
     $('#preloader').addClass('hide')
     setTimeout(function() {
@@ -115,7 +123,7 @@ function setupEvents() {
         getEventsByCategory(category, function(err, events) {
             hideLoading()
             if (err) {
-                //handle err
+                showError('Unable to load events')
                 return;
             }
             console.log(events)
@@ -308,39 +316,41 @@ function initFirebase() {
         if (user) {
             user.getToken().then(function(accessToken) {
                 console.log('got token')
+                localStorage.accessToken = accessToken
                 showLoading()
                 $.post(window.serverUrl + 'student/login', {
-                        idToken: accessToken
-                    }, function(data, status) {
-                        if (status != 'success'){
+                    idToken: accessToken
+                }, function(data, status) {
+                    if (status != 'success') {
+                        hideLoading()
+                        showError("Unable to login")
+                        return;
+                    }
+                    console.log(data)
+                    localStorage.user = JSON.stringify(data)
+                    if (data.registered) {
+                        hideLoading()
+                        $('#login').hide()
+                        $('#loggedIn').show()
+                        $('.account-name').html(data.name)
+                    } else {
+                        getColleges(function(err, colleges) {
                             hideLoading()
-                            return;
-                        }
-                        console.log(data)
-                        if (data.registered) {
-                            $('#login').hide()
-                            $('#loggedIn').show()
-                            localStorage.user = JSON.stringify(data)
-                            $('.account-name').html(user.name)
-                        }else{
-                            getColleges(function(err,colleges){
-                                hideLoading()
-                                if(err){
-                                    //handle
-                                    return;
-                                }
-                                colleges.push({
-                                    id:0,
-                                    name:'Select College'
-                                })
-                                var tmpl = $.templates('<option value="{{:id}}">{{:name}}</option>');
-                                var col = tmpl.render(colleges)
-                                $('#inputcollege').html(col)
-                                $('#inputcollege').val(0)
-                                $('#registerModal').modal('show');
+                            if (err) {
+                                return showError("Unable to get College list")
+                            }
+                            colleges.push({
+                                id: 0,
+                                name: 'Select College'
                             })
-                        }
-                    })
+                            var tmpl = $.templates('<option value="{{:id}}">{{:name}}</option>');
+                            var col = tmpl.render(colleges)
+                            $('#inputcollege').html(col)
+                            $('#inputcollege').val(0)
+                            $('#registerModal').modal('show');
+                        })
+                    }
+                })
             });
         } else {
             console.log('no user')
@@ -370,21 +380,49 @@ function initFirebase() {
         });
     })
 
-    $('.register-button').click(function(){
+    $('.register-button').click(function() {
         var college = $('#inputcollege').val()
         var phone = $('#inputphone').val()
         var sexInput = $('.inputsex')
         var sex = sexInput[0].checked ? 'male' : 'female'
         var acco = $('#inputacco').is(':checked')
-        if(acco)
-            acco  = sex
+        if (acco)
+            acco = sex
         else
             acco = 'none'
         var data = {
-            phone:phone,
-            collegeId:college,
-            accomodation:acco
+            phone: phone,
+            collegeId: college,
+            accomodation: acco
         }
+        if (data.collegeId == '0')
+            return showError("Please select college or choose <b>others</b> from the list")
+        if (data.phone == "")
+            return showError("Please enter Phone")
         console.log(data)
+        showLoading()
+        $.ajax({
+            url: window.serverUrl + 'student/register',
+            type: 'post',
+            data: data,
+            headers: {
+                'x-auth-token': localStorage.accessToken
+            },
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                hideLoading()
+                var user = JSON.parse(localStorage.user)
+                $('#login').hide()
+                $('#loggedIn').show()
+                $('.account-name').html(user.name)
+                $('#registerModal').modal('hide')
+            },
+            error: function(data) {
+                hideLoading()
+                console.log(data)
+                showError("Unable to register")
+            }
+        });
     })
 }
