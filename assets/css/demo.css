@@ -13,46 +13,6 @@ body {
 
 /* Buttons */
 
-.btn {
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    pointer-events: auto;
-    color: #333;
-    border: 0;
-    border-radius: 1.85em;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.885em;
-    padding: 1em 2em;
-    margin: 0 auto;
-    background: rgba(251, 224, 148, 0.8);
-    -webkit-transition: background 0.3s, opacity 0.3s;
-    transition: background 0.3s, opacity 0.3s;
-}
-
-.btn:focus {
-    outline: none;
-}
-
-.btn:hover {
-    background: rgba(251, 224, 148, 1);
-}
-
-.btn--trigger {
-    width: 15em;
-    position: absolute;
-    bottom: 2em;
-    left: 50%;
-    margin: 0 0 0 -7.5em;
-}
-
-.btn--hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
 
 /* Demo colors */
 
