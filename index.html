@@ -138,13 +138,54 @@
         <section id="about" class="about section">
             <div class="demo-2">
                 <!-- Initial markup -->
-                <div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">
+              <!--  <div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">-->
                     <h1 style="font-family: 'Merriweather', serif;">About Section</h1>
                 </div>
                 <!--<h2 class="trigger-headline trigger-headline--hidden"><span>D</span><span>R</span><span>I</span><span>S</span><span>H</span><span>T</span><span>I</span></h2>-->
-                <div class="bottom-nav">
+                <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Poppins:700" rel="stylesheet">
+
+
+
+
+            		<script>document.documentElement.className = 'js';</script>
+            	</head>
+            	<body class="demo-split">
+            		<main>
+
+
+            			<section class="about-content">
+            				<div class="dual">
+            					<div class="dual__inner" id="rev-1">
+            						<div class="dual__half"></div>
+            					</div>
+            					<div class="dual__content">
+            						Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.<span class="author">― Richard Feynman</span>
+            					</div>
+            				</div>
+            			</section>
+            			<section class="content flexy flexy--center">
+            				<div class="media">
+            					<div id="rev-2" class="media__inner"><img class="media__image" src="img/5.jpg" alt="Image" /></div>
+            					<div class="media__toolbar">
+            						<button class="btn btn--tool"><svg class="icon icon--heart"><use xlink:href="#icon-heart"></use></svg></button>
+            						<button class="btn btn--tool"><svg class="icon icon--comment"><use xlink:href="#icon-comment"></use></svg></button>
+            						<button class="btn btn--tool"><svg class="icon icon--download"><use xlink:href="#icon-download"></use></svg></button>
+            					</div>
+            				</div>
+            			</section>
+            			<!-- Related demos -->
+
+            		</main>
+
+
+
+
+
+
+
+              <!--  <div class="bottom-nav">
                     <button class="btn btn--trigger">Show Effect</button>
-                </div>
+                </div>-->
             </div>
         </section>
 
@@ -378,6 +419,8 @@
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/about.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/anime.min.js"></script>
+    <script src="assets/js/scrollMonitor.js"></script>
     <script id="eventsTemplate" type="text/x-jsrender">
         <section class="grid3d vertical" id="grid3d">
             <div class="grid-wrap">
@@ -421,6 +464,58 @@
                 </div>
             </div>
         </li>
+    </script>
+
+
+
+    <!-- about animation-->
+    <script>
+    (function() {
+      // Fake loading.
+      setTimeout(init, 1000);
+
+      function init() {
+        document.body.classList.remove('loading');
+
+        var splitContent = document.querySelector('.dual__content'),
+          rev1 = new RevealFx(document.querySelector('#rev-1'), {
+            revealSettings : {
+              bgcolor: '#2d2c2c',
+              direction: 'rl',
+              duration: 800,
+              easing: 'easeInOutCirc',
+              coverArea: 50,
+              onCover: function(contentEl, revealerEl) {
+                contentEl.style.opacity = 1;
+                splitContent.classList.add('dual__content--show');
+              }
+            }
+          });
+
+        rev1.reveal();
+
+        var scrollElemToWatch = document.getElementById('rev-2'),
+          watcher = scrollMonitor.create(scrollElemToWatch, -300),
+          mediaToolbar = document.querySelector('.media__toolbar'),
+          rev2 = new RevealFx(scrollElemToWatch, {
+            revealSettings : {
+              bgcolor: '#2d2c2c',
+              duration: 800,
+              easing: 'easeInOutCirc',
+              coverArea: 12.5,
+              onCover: function(contentEl, revealerEl) {
+                contentEl.style.opacity = 1;
+                mediaToolbar.classList.add('media__toolbar--show');
+              }
+            }
+          });
+
+        watcher.enterViewport(function() {
+          rev2.reveal();
+          watcher.destroy();
+        });
+      }
+    })();
     </script>
 </body>
 
