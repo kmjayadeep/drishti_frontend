@@ -59,6 +59,62 @@ function initializeFunction() {
     getEvents()
     setupEvents();
     setupWorkshops();
+    initScroll()
+}
+
+function initScroll() {
+    return; //not working properly
+    var lastScroll = 0
+    var scrollEnabled = true
+    var disableOnce = false
+    var lastSection = 0
+    $(window).scroll(scrollFunction)
+
+    function scrollFunction() {
+        if (!scrollEnabled) {
+            return
+        }
+        var st = $(this).scrollTop();
+        if (st > lastScroll)
+            var scroll = 'down'
+        else
+            var scroll = 'up'
+        console.log(scroll)
+        console.log(lastScroll + ' ' + st)
+        var sections = $('.section')
+        lastScroll = st
+        if (scroll == 'down') {
+            lastSection++
+        } else {
+            lastSection--
+        }
+        if(lastSection<0)
+            // lastSection = sections.length-1
+            lastSection = 0
+        if(lastSection>=sections.length)
+            // lastSection = 0
+            lastSection = sections.length-1
+        gotoSection = lastSection
+        console.log(gotoSection)
+        var goto = $(sections[gotoSection]).offset().top
+        var body = $("html, body");
+        scrollEnabled = false
+        lastScroll = goto
+        $(window).off('scroll', scrollFunction)
+        console.log('disabled')
+        $("body").css("overflow-y", "hidden");
+        body.stop().animate({ scrollTop: goto }, '1000', 'swing', function() {
+            console.log("Finished animating");
+            setTimeout(function() {
+                    scrollEnabled = true
+                    console.log('enabled')
+                    $(window).scroll(scrollFunction)
+                    $("body").css("overflow-y", "scroll");
+                }, 100)
+                // disableOnce = true
+        });
+        // $(window).scrollTop($($('.section')[3]).offset().top)
+    }
 }
 
 function getColleges(cb) {
