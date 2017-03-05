@@ -236,6 +236,19 @@ function getWorkshops(cb) {
     })
 }
 
+function showWorkshop(eventId) {
+    getEvents(function(err, events) {
+        if (err) return
+        var workshop = events.filter(function(event) {
+            return event.id == eventId
+        })
+        var tmpl = $.templates("#workshopModalTemplate");
+        var grid = tmpl.render(workshop)
+        $('#workshopModal .modal-body').html(grid)
+        $('#workshopModal').modal('show')
+    })
+}
+
 function setupEvents() {
     console.log('setting up events')
     $('.slide').click(loadEvents);
@@ -369,6 +382,10 @@ function registerEvent(eventId) {
             }
         });
     })
+}
+
+function closeWorkshopModal(){
+    $('#workshopModal').modal('hide')
 }
 
 function setupWorkshops() {

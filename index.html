@@ -145,9 +145,9 @@
 
         <section id="about" class="about section">
 
-                <!-- Initial markup -->
-                <!--  <div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">-->
-              <h1 class="section-head">About</h1>
+            <!-- Initial markup -->
+            <!--  <div class="segmenter" style="background-image: url(assets/images/cet_image.jpg)">-->
+            <h1 class="section-head">About</h1>
 
             <!--<h2 class="trigger-headline trigger-headline--hidden"><span>D</span><span>R</span><span>I</span><span>S</span><span>H</span><span>T</span><span>I</span></h2>-->
 
@@ -155,16 +155,16 @@
 
             <div class="demo-split">
 
-              <section class="about-content">
-                        <div class="dual">
-                            <div class="dual__inner" id="rev-1">
-                                <div class="dual__half" style="float:right;"></div>
-                            </div>
-                            <div class="dual__content">
-                                Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.<span class="author">― Richard Feynman</span>
-                            </div>
+                <section class="about-content">
+                    <div class="dual">
+                        <div class="dual__inner" id="rev-1">
+                            <div class="dual__half" style="float:right;"></div>
                         </div>
-                    </section>
+                        <div class="dual__content">
+                            Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.<span class="author">― Richard Feynman</span>
+                        </div>
+                    </div>
+                </section>
 
 
 
@@ -390,6 +390,20 @@
 
     </section>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id="workshopModal">
+        <span class="icon heavy rounded close" onclick="closeWorkshopModal()" style="z-index: 100;opacity: 1;"></span>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
     <div id="preloader">
         <!-- place loader here -->
         loading...
@@ -531,10 +545,103 @@
                         <h1>{{:name}}</h1>
                     </header>
                     {{:description}}
-                    <button class="workshop-read-more">Read More</button>
+                    <button class="workshop-read-more" onclick="showWorkshop({{:id}})">Read More</button>
                 </div>
             </div>
         </li>
+    </script>
+
+    <script id="workshopModalTemplate" type="text/x-jsrender">
+        <div class="event-modal">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="event-modal-img">
+                        <img src="{{:image}}" class="img-responsive" alt=":name" />
+                    </div>
+                    <div class="event-info">
+                        {{if schedule}}
+                        <p>Schedule : {{:schedule}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="event-register" id="register-{{:id}}">
+                        {{if group}}
+                        <div class="event-group">
+
+                            <ul class="list-group">
+                            </ul>
+
+                            <p>Add Group Member by phone number or Email id</p>
+                            <p>Group members should be alredy registered</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter Email or Phone">
+                                <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" onclick="addGroupMember({{:id}})">Add</button>
+                                            </span>
+                            </div>
+                        </div>
+                        {{/if}} {{if !registered}}
+                        <button class="btn btn-primary btn-register" onclick="registerEvent({{:id}})">
+                                        Register
+                                    </button> {{else}}
+                        <p class="registered">Registered</p>
+                        {{/if}}
+                        <p class="registered hide">Registered</p>
+
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <h3 class="event-modal-name">{{:name}}</h3>
+                    <div class="event-content">
+                        <div class="event-modal-content content-description">
+                            {{:description}}
+                        </div>
+                        <h3>Rules</h3>
+                        <div class="event-modal-content content-format">
+                            {{:format}}
+                        </div>
+                        <h3>Contact</h3>
+                        <div class="event-modal-content content-contact">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    {{if contactName1}}
+                                    <div class="event-contact">
+                                        <p class="name">{{:contactName1}}</p>
+                                        <p class="phone">
+                                            <a href="tel:{{:contactPhone1}}">
+                                                        {{:contactPhone1}}
+                                                        </a>
+                                        </p>
+                                        <p class="email">
+                                            <a href="mailto:{{:contactEmail1}}">
+                                                        {{:contactEmail1}}
+                                                        </a>
+                                        </p>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                                <div class="col-xs-6">
+                                    {{if contactName2}}
+                                    <div class="event-contact">
+                                        <p class="name">{{:contactName2}}</p>
+                                        <p class="phone">
+                                            <a href="tel:{{:contactPhone2}}">
+                                                        {{:contactPhone2}}
+                                                        </a>
+                                        </p>
+                                        <p class="email">
+                                            <a href="mailto:{{:contactEmail2}}">
+                                                        {{:contactEmail2}}
+                                                        </a>
+                                        </p>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
 
 

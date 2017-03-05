@@ -644,6 +644,16 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     font-weight: bold
 }
 
+#workshopModal .modal-dialog{
+    width: 100%;
+    margin: 0;
+}
+
+#workshopModal{
+    padding: 0px !important;
+    font-family: "Oswald"
+}
+
 @media only screen and (max-width: 760px) {
     .event-info {
         text-align: center;
