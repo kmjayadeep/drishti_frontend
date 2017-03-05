@@ -60,6 +60,29 @@ function initializeFunction() {
         // setupWorkshops();
         // eventSetup()
     initScroll()
+    initResponsive()
+}
+
+function initResponsive() {
+    $(window).resize(resize)
+
+    function resize() {
+        var len = $('.workshops-container').width()
+        var noDiv = Math.floor(len / 360) // width of workshop div
+        var padd = (len - noDiv * 360) / 2;
+        $('.workshop-grid').css('padding-left', padd)
+        fixEventsResponsive()
+    }
+    resize()
+}
+
+function fixEventsResponsive() {
+    len = $('.events-grid').width() - 5
+    var screenWidth = $(window).width()
+    var widthDiv = screenWidth > 1000 ? 360 : 260
+    noDiv = Math.floor(len / widthDiv)
+    var padd = (len - noDiv * widthDiv) / 2
+    $('.events-grid .grid3d').css('padding-left', padd)
 }
 
 function eventSetup() {
@@ -272,6 +295,7 @@ function setupEvents() {
             })
             $('.events-grid').html(grid)
             new grid3D(document.getElementById('grid3d'));
+            fixEventsResponsive()
         })
     }
 }
@@ -384,7 +408,7 @@ function registerEvent(eventId) {
     })
 }
 
-function closeWorkshopModal(){
+function closeWorkshopModal() {
     $('#workshopModal').modal('hide')
 }
 
