@@ -56,10 +56,20 @@ function hideLoading() {
 function initializeFunction() {
     initFirebase()
     getColleges()
-    getEvents()
     setupEvents();
     setupWorkshops();
+    // eventSetup()
     initScroll()
+}
+
+function eventSetup() {
+    getEvents(function(err, events) {
+        console.log(err)
+        if (err)
+            return eventSetup()
+                // setupEvents();
+                // setupWorkshops();
+    })
 }
 
 function initScroll() {
@@ -169,16 +179,18 @@ function getRegisteredEvents(cb) {
             console.log('registered events')
             console.log(regEvents)
             window.registeredEvents = regEvents
-            var ids = regEvents.map(function(reg){
+            var ids = regEvents.map(function(reg) {
                 return reg.id
             })
-            window.allEvents = window.allEvents.map(function(event){
-                if(ids.indexOf(event.id)!=-1)
+            window.allEvents = window.allEvents.map(function(event) {
+                if (ids.indexOf(event.id) != -1)
                     event.registered = true
                 else
                     event.registered = false
                 return event
             })
+            if (typeof cb == 'function')
+                cb(null, window.allEvents)
         },
         error: function(error) {
             console.log(error)
@@ -223,6 +235,7 @@ function getWorkshops(cb) {
 }
 
 function setupEvents() {
+    console.log('setting up events')
     $('.slide').click(loadEvents);
 
     function loadEvents(event) {
@@ -278,9 +291,9 @@ function registerEvent(eventId) {
                 hideLoading()
                 $('.event-group').hide()
                 $('#register-' + eventId + ' button').hide()
-                $('#register-'+eventId+ ' .registered').removeClass('hide')
-                window.allEvents = window.allEvents.map(function(event){
-                    if(event.id==eventId)
+                $('#register-' + eventId + ' .registered').removeClass('hide')
+                window.allEvents = window.allEvents.map(function(event) {
+                    if (event.id == eventId)
                         event.registered = true
                 })
             },
