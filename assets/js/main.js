@@ -131,16 +131,60 @@ function getColleges(cb) {
 }
 
 function getEvents(cb) {
-    if (typeof window.allEvents == 'object' && typeof cb == 'function')
-        return cb(null, window.allEvents)
+    if (typeof window.allEvents == 'object') {
+        if (typeof localStorage.accessToken == 'string')
+            return getRegisteredEvents(cb)
+        if (typeof cb == 'function')
+            return cb(null, window.allEvents)
+        else return
+    }
     $.get(window.serverUrl + 'public/event', function(data, status) {
         if (status == 'success') {
             window.allEvents = data;
-            if (typeof cb == 'function')
-                cb(null, data)
+            console.log(allEvents)
+            if (typeof localStorage.accessToken == 'undefined')
+                if (typeof cb == 'function')
+                    return cb(null, data)
+                else return
+            if (typeof localStorage.accessToken == 'string')
+                getRegisteredEvents(cb)
         } else if (typeof cb == 'function')
             cb('Network error')
     })
+}
+
+function getRegisteredEvents(cb) {
+    if (typeof window.registeredEvents == 'object')
+        if (typeof cb == 'function')
+            return cb(null, window.allEvents)
+        else return
+    $.ajax({
+        url: window.serverUrl + 'student/event/',
+        type: 'get',
+        headers: {
+            'x-auth-token': localStorage.accessToken
+        },
+        dataType: 'json',
+        success: function(regEvents) {
+            console.log('registered events')
+            console.log(regEvents)
+            window.registeredEvents = regEvents
+            var ids = regEvents.map(function(reg){
+                return reg.id
+            })
+            window.allEvents = window.allEvents.map(function(event){
+                if(ids.indexOf(event.id)!=-1)
+                    event.registered = true
+                else
+                    event.registered = false
+                return event
+            })
+        },
+        error: function(error) {
+            console.log(error)
+            cb(error)
+        }
+    });
 }
 
 function getEventsByCategory(cat, cb) {
@@ -205,9 +249,9 @@ function setupEvents() {
 }
 
 function registerEvent(eventId) {
-    if(!localStorage.accessToken)
-            return showError("Please login with faceebook or google to register for event")
-    
+    if (!localStorage.accessToken)
+        return showError("Please login with facebook or google to register for event")
+
     getEvents(function(err, events) {
         var event = events.find(function(event) {
             return event.id == eventId
@@ -222,7 +266,7 @@ function registerEvent(eventId) {
         }
         showLoading()
         $.ajax({
-            url: window.serverUrl + 'student/event/'+eventId,
+            url: window.serverUrl + 'student/event/' + eventId,
             type: 'put',
             data: data,
             headers: {
@@ -233,14 +277,18 @@ function registerEvent(eventId) {
                 console.log(data)
                 hideLoading()
                 $('.event-group').hide()
-                $('#register-'+eventId+' button').hide()
-                $('.registered').removeClass('hide')
+                $('#register-' + eventId + ' button').hide()
+                $('#register-'+eventId+ ' .registered').removeClass('hide')
+                window.allEvents = window.allEvents.map(function(event){
+                    if(event.id==eventId)
+                        event.registered = true
+                })
             },
             error: function(data) {
                 console.log(data)
                 hideLoading()
                 $('.event-group').hide()
-                if(data.status==401)
+                if (data.status == 401)
                     return showError("Please login with faceebook or google to register for event")
                 showError("Unable to register for event")
             }
@@ -444,6 +492,7 @@ function initFirebase() {
                         $('#login').hide()
                         $('#loggedIn').show()
                         $('.account-name').html(data.name)
+                        getEvents()
                     } else {
                         getColleges(function(err, colleges) {
                             hideLoading()
@@ -465,6 +514,7 @@ function initFirebase() {
             });
         } else {
             console.log('no user')
+            delete localStorage.accessToken
             $('#login').show()
             $('#loggedIn').hide()
         }
