@@ -634,6 +634,7 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 
 .event-group {
     display: none;
+    margin-bottom: 10px;
 }
 
 .registered {

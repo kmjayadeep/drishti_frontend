@@ -273,6 +273,10 @@ function registerEvent(eventId) {
         if (!event.group) {
             var data = {}
         } else {
+            if(!$('#register-' + eventId + ' .event-group').is(':visible')){
+                $('#register-' + eventId + ' .event-group').slideDown()
+                return;
+            }
             var data = {
                 //fill here
             }
@@ -290,7 +294,7 @@ function registerEvent(eventId) {
                 console.log(data)
                 hideLoading()
                 $('.event-group').hide()
-                $('#register-' + eventId + ' button').hide()
+                $('#register-' + eventId + ' button.btn-register').hide()
                 $('#register-' + eventId + ' .registered').removeClass('hide')
                 window.allEvents = window.allEvents.map(function(event) {
                     if (event.id == eventId)

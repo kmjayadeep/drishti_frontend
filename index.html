@@ -448,19 +448,29 @@
                                     {{/if}}
                                 </div>
                                 <div class="event-register" id="register-{{:id}}">
-                                    {{if !registered}}
-                                    <button class="btn btn-primary" onclick="registerEvent({{:id}})" >
-                                        Register
-                                    </button>
-                                    {{else}}
-                                        <p class="registered">Registered</p>
-                                    {{/if}}
-                                    <p class="registered hide">Registered</p>
                                     {{if group}}
                                     <div class="event-group">
 
+                                        <ul class="list-group">
+                                        </ul>
+
+                                        <p>Add Group Member by phone number or Email id</p>
+                                        <p>Group members should be alredy registered</p>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Enter Email or Phone">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" onclick="addGroupMember({{:id}})">Add</button>
+                                            </span>
+                                        </div>
                                     </div>
+                                    {{/if}} {{if !registered}}
+                                    <button class="btn btn-primary btn-register" onclick="registerEvent({{:id}})">
+                                        Register
+                                    </button> {{else}}
+                                    <p class="registered">Registered</p>
                                     {{/if}}
+                                    <p class="registered hide">Registered</p>
+
                                 </div>
                             </div>
                             <div class="col-sm-8">
