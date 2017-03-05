@@ -152,12 +152,12 @@ function getEventsByCategory(cat, cb) {
         }).map(function(event) {
             event.totalPrize = event.prize1 + event.prize2 + event.prize3
             event.schedule = ''
-            if(event.day>=17)
-                event.day-=17
-            if(event.day){
-                event.schedule+='Day '+event.day
-                if(event.time)
-                    event.schedule+=' '+event.time
+            if (event.day >= 17)
+                event.day -= 17
+            if (event.day) {
+                event.schedule += 'Day ' + event.day
+                if (event.time)
+                    event.schedule += ' ' + event.time
             }
             return event
         })
@@ -202,6 +202,50 @@ function setupEvents() {
             new grid3D(document.getElementById('grid3d'));
         })
     }
+}
+
+function registerEvent(eventId) {
+    if(!localStorage.accessToken)
+            return showError("Please login with faceebook or google to register for event")
+    
+    getEvents(function(err, events) {
+        var event = events.find(function(event) {
+            return event.id == eventId
+        })
+        console.log(event)
+        if (!event.group) {
+            var data = {}
+        } else {
+            var data = {
+                //fill here
+            }
+        }
+        showLoading()
+        $.ajax({
+            url: window.serverUrl + 'student/event/'+eventId,
+            type: 'put',
+            data: data,
+            headers: {
+                'x-auth-token': localStorage.accessToken
+            },
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                hideLoading()
+                $('.event-group').hide()
+                $('#register-'+eventId+' button').hide()
+                $('.registered').removeClass('hide')
+            },
+            error: function(data) {
+                console.log(data)
+                hideLoading()
+                $('.event-group').hide()
+                if(data.status==401)
+                    return showError("Please login with faceebook or google to register for event")
+                showError("Unable to register for event")
+            }
+        });
+    })
 }
 
 function setupWorkshops() {

@@ -253,7 +253,7 @@ old drishti start
     clear: both;
 }
 
-.logout-button {
+.btn.logout-button {
     background: #fd615f;
     color: white;
 }
@@ -584,8 +584,9 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 .event-modal {
     padding: 10px;
 }
-.event-modal-img{
-    margin-top:20px;
+
+.event-modal-img {
+    margin-top: 20px;
 }
 
 .event-modal-name {
@@ -631,15 +632,24 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     border: 2px solid #fff;
 }
 
+.event-group {
+    display: none;
+}
+
+.registered {
+    text-align: center;
+    color: #337ab7;
+    font-family: "Lato";
+    font-weight: bold
+}
 
 @media only screen and (max-width: 760px) {
-    .event-info{
+    .event-info {
         text-align: center;
     }
-    .event-register{
+    .event-register {
         text-align: center;
     }
-
 }
 
 @media only screen and (min-width: 640px) {

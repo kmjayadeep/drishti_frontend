@@ -447,8 +447,20 @@
                                     <p>Schedule : {{:schedule}}</p>
                                     {{/if}}
                                 </div>
-                                <div class="event-register">
-                                    <button class="btn btn-primary">Register</button>
+                                <div class="event-register" id="register-{{:id}}">
+                                    {{if !registered}}
+                                    <button class="btn btn-primary" onclick="registerEvent({{:id}})" >
+                                        Register
+                                    </button>
+                                    {{else}}
+                                        <p class="registered">Registered</p>
+                                    {{/if}}
+                                    <p class="registered hide">Registered</p>
+                                    {{if group}}
+                                    <div class="event-group">
+
+                                    </div>
+                                    {{/if}}
                                 </div>
                             </div>
                             <div class="col-sm-8">
