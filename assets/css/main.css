@@ -581,7 +581,7 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     width: 100%;
     height: 100vh;
     display: block;
-    margin-top:-20px;
+    margin-top: -20px;
     padding-top: 1px;
 }
 
@@ -648,12 +648,12 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     font-weight: bold
 }
 
-#workshopModal .modal-dialog{
+#workshopModal .modal-dialog {
     width: 100%;
     margin: 0;
 }
 
-#workshopModal{
+#workshopModal {
     padding: 0px !important;
     font-family: "Oswald"
 }
@@ -1145,7 +1145,30 @@ h1.events-head {
 
 .masthead {
     font-family: "Open Sans", sans-serif;
+    width: auto;
+    background: white;
+    overflow-x: hidden;
 }
+
+
+.masthead::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #237b9f;
+    box-shadow: inset 0 0 6px #237b9f;
+    /*background-color: #fff;*/
+}
+
+.masthead::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+}
+
+.masthead::-webkit-scrollbar-thumb {
+    background-color: #237b9f;
+    border: 2px solid #fff;
+}
+
+
 
 .masthead .brand-container {
     padding: 10px;
@@ -1199,6 +1222,16 @@ h1.events-head {
     }
     .masthead .brand-container a {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 48.0625em) {
+    .events-body {
+        width: 100vw;
+        height: calc(100vh - 130px);
+    }
+    .masthead{
+        overflow-x: scroll;
     }
 }
 
@@ -2072,7 +2105,6 @@ h2,
 
 .dual__half {
     position: relative;
-
     height: 100%;
     width: 51%;
     right: 0;
@@ -2081,12 +2113,13 @@ h2,
 }
 
 .dual__content {
-    position:relative;
+    position: relative;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 40%;;
+    min-height: 40%;
+    ;
     padding: 1.5em 2.5em;
     font-size: 1.75em;
     line-height: 1.4;
@@ -2163,7 +2196,7 @@ h2,
 }
 
 .demo-split {
-  /*  background-image: url("../images/cet_image.jpg");*/
+    /*  background-image: url("../images/cet_image.jpg");*/
     /*background: #ff784a;*/
     /*color: #fff;*/
 }
