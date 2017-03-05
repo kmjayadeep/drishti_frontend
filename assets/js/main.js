@@ -33,8 +33,8 @@ $(document).ready(function() {
 });
 
 function showLoading() {
-    $('#preloader').removeClass('hide')
-    $('#preloader').show()
+    // $('#preloader').removeClass('hide')
+    $('#preloader').fadeIn()
 }
 
 function showError(message) {
@@ -46,11 +46,12 @@ function showError(message) {
 }
 
 function hideLoading() {
-    $('#preloader').addClass('hide')
-    setTimeout(function() {
-        if (isDebug)
-            $('#preloader').hide();
-    }, 2000)
+    // $('#preloader').addClass('hide')
+    // setTimeout(function() {
+    //     if (isDebug)
+    //         $('#preloader').hide();
+    // }, 2000)
+    $('#preloader').fadeOut()
 }
 
 function initializeFunction() {
