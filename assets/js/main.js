@@ -189,6 +189,8 @@ function getRegisteredEvents(cb) {
                     event.registered = false
                 return event
             })
+            console.log('changed allEvents')
+            console.log(window.allEvents)
             if (typeof cb == 'function')
                 cb(null, window.allEvents)
         },
@@ -354,6 +356,7 @@ function registerEvent(eventId) {
                 window.allEvents = window.allEvents.map(function(event) {
                     if (event.id == eventId)
                         event.registered = true
+                    return event
                 })
             },
             error: function(data) {
