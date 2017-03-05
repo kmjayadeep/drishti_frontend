@@ -2044,7 +2044,7 @@ h2,
 }
 
 .dual {
-    width: 90vw;
+    width: 90%;
     margin: 8em auto 25vh;
     position: relative;
 }
@@ -2057,7 +2057,7 @@ h2,
 
 .dual__half {
     position: relative;
-    
+
     height: 100%;
     width: 51%;
     right: 0;
@@ -2071,7 +2071,7 @@ h2,
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 500px;
+    min-height: 40%;;
     padding: 1.5em 2.5em;
     font-size: 1.75em;
     line-height: 1.4;
