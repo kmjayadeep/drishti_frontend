@@ -6,7 +6,7 @@ $(document).ready(function() {
     initializeFunction()
     setupNavigation()
 
-    if ($(window).width() >= 640) {
+    if (!window.matchMedia("only screen and (max-width: 760px)").matches) {
         $('#dexter').show()
         $('#old-drishti-container').show()
         setTimeout(function() {
