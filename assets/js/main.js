@@ -279,16 +279,37 @@ function addGroupMember(eventId) {
     var event = window.allEvents.find(function(ev) {
         return ev.id == eventId
     })
-    if (event.maxPerGroup > 0 && currentMembers.length == event.maxPerGroup)
+    if (event.maxPerGroup > 0 && currentMembers.length == event.maxPerGroup - 1)
         return showError("You cannot add more than " + event.maxPerGroup + " members to group")
-    var student = {
-        name: 'raju',
-        id: 100
-    }
-    currentMembers.push(student)
-    var tmpl = $.templates('<li class="list-group-item" data-id="{{:id}}" data-name="{{:name}}">{{:name}}</li>');
-    var members = tmpl.render(currentMembers)
-    $('#register-' + eventId + ' .event-group .list-group').html(members)
+
+    var query = $('#register-' + eventId + ' .event-group input').val()
+
+
+    $.get(window.serverUrl + 'public/student/' + query, function(data, status) {
+        if (status != 'success')
+            return showError('unable to find student! Make sure you enter correct email/phone')
+        console.log(data)
+        var isAlready = currentMembers.find(function(mem) {
+            return mem.id == data.id
+        })
+        if (isAlready)
+            return showError("Member already added")
+        currentMembers.push({
+            id: data.id,
+            name: data.name
+        })
+        var tmpl = $.templates('<li class="list-group-item" data-id="{{:id}}" data-name="{{:name}}">{{:name}}</li>');
+        var members = tmpl.render(currentMembers)
+        $('#register-' + eventId + ' .event-group .list-group').html(members)
+    }).fail(function(err) {
+        try {
+            var error = JSON.parse(err.responseText)
+            if (error.code == 15)
+                return showError(error.message)
+        } catch (err) {
+            showError("Unable to find student")
+        }
+    })
 }
 
 function registerEvent(eventId) {
@@ -308,16 +329,20 @@ function registerEvent(eventId) {
                 return;
             }
             var data = {
-                //fill here
+                group: getGroupMembers(eventId).map(function(student) {
+                    return student.id
+                })
             }
         }
+        console.log(data)
         showLoading()
         $.ajax({
             url: window.serverUrl + 'student/event/' + eventId,
             type: 'put',
-            data: data,
+            data: JSON.stringify(data),
             headers: {
-                'x-auth-token': localStorage.accessToken
+                'x-auth-token': localStorage.accessToken,
+                "Content-Type": "application/json"
             },
             dataType: 'json',
             success: function(data) {
