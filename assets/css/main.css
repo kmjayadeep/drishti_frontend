@@ -584,6 +584,9 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 .event-modal {
     padding: 10px;
 }
+.event-modal-img{
+    margin-top:20px;
+}
 
 .event-modal-name {
     text-align: center;
@@ -603,12 +606,14 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 }
 
 .event-info {
+    text-align: left;
     padding: 10px;
     font-size: 15px;
     margin-top: 10px;
 }
 
 .event-register {
+    text-align: left;
     padding-left: 10px;
 }
 
@@ -624,6 +629,17 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 .content.show::-webkit-scrollbar-thumb {
     background-color: #237b9f;
     border: 2px solid #fff;
+}
+
+
+@media only screen and (max-width: 760px) {
+    .event-info{
+        text-align: center;
+    }
+    .event-register{
+        text-align: center;
+    }
+
 }
 
 @media only screen and (min-width: 640px) {
