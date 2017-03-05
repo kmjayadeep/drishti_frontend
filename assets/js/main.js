@@ -56,9 +56,9 @@ function hideLoading() {
 function initializeFunction() {
     initFirebase()
     getColleges()
-    // setupEvents();
-    // setupWorkshops();
-    // eventSetup()
+        // setupEvents();
+        // setupWorkshops();
+        // eventSetup()
     initScroll()
 }
 
@@ -261,6 +261,36 @@ function setupEvents() {
     }
 }
 
+function getGroupMembers(eventId) {
+    var members = $('#register-' + eventId + ' .event-group .list-group').children()
+    var groupMembers = []
+    for (var i = 0; i < members.length; i++) {
+        var li = $(members[i])
+        groupMembers.push({
+            id: li.data('id'),
+            name: li.data('name')
+        })
+    }
+    return groupMembers
+}
+
+function addGroupMember(eventId) {
+    var currentMembers = getGroupMembers(eventId)
+    var event = window.allEvents.find(function(ev) {
+        return ev.id == eventId
+    })
+    if (event.maxPerGroup > 0 && currentMembers.length == event.maxPerGroup)
+        return showError("You cannot add more than " + event.maxPerGroup + " members to group")
+    var student = {
+        name: 'raju',
+        id: 100
+    }
+    currentMembers.push(student)
+    var tmpl = $.templates('<li class="list-group-item" data-id="{{:id}}" data-name="{{:name}}">{{:name}}</li>');
+    var members = tmpl.render(currentMembers)
+    $('#register-' + eventId + ' .event-group .list-group').html(members)
+}
+
 function registerEvent(eventId) {
     if (!localStorage.accessToken)
         return showError("Please login with facebook or google to register for event")
@@ -273,7 +303,7 @@ function registerEvent(eventId) {
         if (!event.group) {
             var data = {}
         } else {
-            if(!$('#register-' + eventId + ' .event-group').is(':visible')){
+            if (!$('#register-' + eventId + ' .event-group').is(':visible')) {
                 $('#register-' + eventId + ' .event-group').slideDown()
                 return;
             }
