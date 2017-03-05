@@ -60,6 +60,18 @@ function initializeFunction() {
         // setupWorkshops();
         // eventSetup()
     initScroll()
+    initResponsive()
+}
+function initResponsive(){
+    $(window).resize(resize)
+    function resize(){
+        var len = $('.workshops-container').width()
+        var noDiv = Math.floor(len / 360) // width of workshop div
+        var padd = (len - noDiv*360)/2;
+        console.log(padd)
+        $('.workshop-grid').css('padding-left',padd)
+    }
+    resize()
 }
 
 function eventSetup() {
