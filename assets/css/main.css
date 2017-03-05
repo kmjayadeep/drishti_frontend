@@ -2055,7 +2055,8 @@ h2,
 }
 
 .dual__half {
-    position: absolute;
+    position: relative;
+    
     height: 100%;
     width: 51%;
     right: 0;
@@ -2064,7 +2065,7 @@ h2,
 }
 
 .dual__content {
-    position: relative;
+    position:relative;
     width: 50%;
     display: flex;
     flex-direction: column;
