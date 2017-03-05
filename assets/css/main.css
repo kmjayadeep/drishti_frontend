@@ -567,10 +567,10 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 .about {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    /*background-image: url("../images/cet_image.jpg");*/
+    background-image: url("../images/cet_image.jpg");
     /*background-color: #50514f;*/
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .events {
@@ -2059,7 +2059,7 @@ h2,
     height: 100%;
     width: 51%;
     right: 0;
-    background: url(../img/4.jpg) no-repeat 50% 0%;
+    background: url("../images/1.jpg") no-repeat 50% 0%;
     background-size: cover;
 }
 
@@ -2146,7 +2146,7 @@ h2,
 }
 
 .demo-split {
-    background-image: url("../images/cet_image.jpg");
+  /*  background-image: url("../images/cet_image.jpg");*/
     /*background: #ff784a;*/
     /*color: #fff;*/
 }
