@@ -56,19 +56,19 @@ function hideLoading() {
 function initializeFunction() {
     initFirebase()
     getColleges()
-    setupEvents();
-    setupWorkshops();
+    // setupEvents();
+    // setupWorkshops();
     // eventSetup()
     initScroll()
 }
 
 function eventSetup() {
     getEvents(function(err, events) {
-        console.log(err)
+        console.log('unable to load events')
         if (err)
             return eventSetup()
-                // setupEvents();
-                // setupWorkshops();
+        setupEvents();
+        setupWorkshops();
     })
 }
 
@@ -505,7 +505,7 @@ function initFirebase() {
                         $('#login').hide()
                         $('#loggedIn').show()
                         $('.account-name').html(data.name)
-                        getEvents()
+                        eventSetup()
                     } else {
                         getColleges(function(err, colleges) {
                             hideLoading()
@@ -530,6 +530,7 @@ function initFirebase() {
             delete localStorage.accessToken
             $('#login').show()
             $('#loggedIn').hide()
+            eventSetup()
         }
     }, function(error) {
         console.log(error);
