@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    window.isDebug = true;
+    window.isDebug = false;
     window.serverUrl = 'http://server.drishticet.org/'
     hideLoading()
     initializeParticles()
     initializeFunction()
     setupNavigation()
 
-    if (!window.isDebug && $(window).width() >= 640) {
+    if ($(window).width() >= 640) {
         $('#dexter').show()
         $('#old-drishti-container').show()
         setTimeout(function() {
@@ -252,8 +252,6 @@ function getWorkshops(cb) {
         if (err)
             return cb(err)
         var workshops = events.filter(function(event) {
-            if (window.isDebug)
-                return event.category == 'ME'
             return event.isWorkshop
         })
         cb(null, workshops)
@@ -931,21 +929,21 @@ function initFirebase() {
 
 
 /* about js */
-jQuery(function ($) {
+jQuery(function($) {
     $(".tile").height($("#tile1").width());
     $(".carousel").height($("#tile1").width());
     $(".item").height($("#tile1").width());
 
-    $(window).on('resize', function () {
+    $(window).on('resize', function() {
         if (this.resizeTO) {
             clearTimeout(this.resizeTO);
         }
-        this.resizeTO = setTimeout(function () {
+        this.resizeTO = setTimeout(function() {
             $(this).trigger('resizeEnd');
         }, 10);
     });
 
-    $(window).on('resizeEnd', function () {
+    $(window).on('resizeEnd', function() {
         $(".tile").height($("#tile1").width());
         $(".carousel").height($("#tile1").width());
         $(".item").height($("#tile1").width());
