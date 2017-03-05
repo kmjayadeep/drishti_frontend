@@ -584,17 +584,35 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
 .event-modal {
     padding: 10px;
 }
-.event-modal-name{
+
+.event-modal-name {
     text-align: center;
     background: #1d767b;
     padding: 10px;
-    color:white;
+    color: white;
 }
-.event-content{
+
+.event-content {
     font-family: "Lato";
 }
-.event-content h3{
-    color:#1d767b;
+
+.event-content h3 {
+    color: #1d767b;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.event-info {
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.event-register {
+    padding-left: 10px;
+}
+
+.event-contact .name {
     font-weight: bold;
 }
 

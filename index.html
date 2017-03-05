@@ -443,7 +443,9 @@
                                 </div>
                                 <div class="event-info">
                                     <p>Total Prize : {{:totalPrize}}</p>
+                                    {{if schedule}}
                                     <p>Schedule : {{:schedule}}</p>
+                                    {{/if}}
                                 </div>
                                 <div class="event-register">
                                     <button class="btn btn-primary">Register</button>
@@ -461,7 +463,42 @@
                                     </div>
                                     <h3>Contact</h3>
                                     <div class="event-modal-content content-contact">
-                                        {{:contactName1}}
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                {{if contactName1}}
+                                                <div class="event-contact">
+                                                    <p class="name">{{:contactName1}}</p>
+                                                    <p class="phone">
+                                                        <a href="tel:{{:contactPhone1}}">
+                                                        {{:contactPhone1}}
+                                                        </a>
+                                                    </p>
+                                                    <p class="email">
+                                                        <a href="mailto:{{:contactEmail1}}">
+                                                        {{:contactEmail1}}
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                {{/if}}
+                                            </div>
+                                            <div class="col-xs-4">
+                                                {{if contactName2}}
+                                                <div class="event-contact">
+                                                    <p class="name">{{:contactName2}}</p>
+                                                    <p class="phone">
+                                                        <a href="tel:{{:contactPhone2}}">
+                                                        {{:contactPhone2}}
+                                                        </a>
+                                                    </p>
+                                                    <p class="email">
+                                                        <a href="mailto:{{:contactEmail2}}">
+                                                        {{:contactEmail2}}
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                {{/if}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
