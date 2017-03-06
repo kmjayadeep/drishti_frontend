@@ -667,6 +667,11 @@ items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
     font-weight: bold
 }
 
+.register.warn{
+    color:#e74c3c;
+    margin:10px 0;
+}
+
 #workshopModal .modal-dialog {
     width: 100%;
     margin: 0;

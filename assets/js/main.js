@@ -6,30 +6,30 @@ $(document).ready(function() {
     initializeFunction()
     setupNavigation()
 
-    if (!window.matchMedia("only screen and (max-width: 760px)").matches) {
-        $('#dexter').show()
-        $('#old-drishti-container').show()
-        setTimeout(function() {
-            window.scrollTo(0, 0)
-            $("body").css("overflow-y", "hidden");
-        }, 100)
-        setTimeout(function() {
-            $('#old-drishti-container').slideUp()
-            $("body").css("overflow-y", "scroll");
-            // $('#onepage').onepage_scroll({
-            //     sectionContainer: ".section",
-            //     loop: false
-            // })
-            setTimeout(function() {
-                $('#dexter').fadeOut()
-            }, 1000)
-        }, 9000)
-    } else {
-        // $('#onepage').onepage_scroll({
-        //     sectionContainer: ".section",
-        //     loop: false
-        // })
-    }
+    // if (!window.matchMedia("only screen and (max-width: 760px)").matches) {
+    //     $('#dexter').show()
+    //     $('#old-drishti-container').show()
+    //     setTimeout(function() {
+    //         window.scrollTo(0, 0)
+    //         $("body").css("overflow-y", "hidden");
+    //     }, 100)
+    //     setTimeout(function() {
+    //         $('#old-drishti-container').slideUp()
+    //         $("body").css("overflow-y", "scroll");
+    //         // $('#onepage').onepage_scroll({
+    //         //     sectionContainer: ".section",
+    //         //     loop: false
+    //         // })
+    //         setTimeout(function() {
+    //             $('#dexter').fadeOut()
+    //         }, 1000)
+    //     }, 9000)
+    // } else {
+    //     // $('#onepage').onepage_scroll({
+    //     //     sectionContainer: ".section",
+    //     //     loop: false
+    //     // })
+    // }
 });
 
 function showLoading() {
@@ -213,8 +213,6 @@ function getRegisteredEvents(cb) {
                     event.registered = false
                 return event
             })
-            console.log('changed allEvents')
-            console.log(window.allEvents)
             if (typeof cb == 'function')
                 cb(null, window.allEvents)
         },
@@ -235,7 +233,7 @@ function getEventsByCategory(cat, cb) {
             event.totalPrize = event.prize1 + event.prize2 + event.prize3
             event.schedule = ''
             if (event.day >= 17)
-                event.day -= 17
+                event.day -= 16
             if (event.day) {
                 event.schedule += 'Day ' + event.day
                 if (event.time)
