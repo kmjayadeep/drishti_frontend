@@ -272,6 +272,7 @@ function showWorkshop(eventId) {
 function setupEvents() {
     console.log('setting up events')
     $('.slide').click(loadEvents);
+    $($('.slide')[0]).click();
 
     function loadEvents(event) {
         event.preventDefault();
