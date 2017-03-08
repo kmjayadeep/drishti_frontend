@@ -57,9 +57,9 @@ function hideLoading() {
 function initializeFunction() {
     initFirebase()
     getColleges()
-        // setupEvents();
-        // setupWorkshops();
-        // eventSetup()
+    // setupEvents();
+    // setupWorkshops();
+    // eventSetup()
     initScroll()
     initResponsive()
 }
@@ -90,7 +90,7 @@ function eventSetup() {
     getEvents(function(err, events) {
         console.log('unable to load events')
         if (err)
-            return eventSetup()
+        return eventSetup()
         setupEvents();
         setupWorkshops();
     })
@@ -110,9 +110,9 @@ function initScroll() {
         }
         var st = $(this).scrollTop();
         if (st > lastScroll)
-            var scroll = 'down'
+        var scroll = 'down'
         else
-            var scroll = 'up'
+        var scroll = 'up'
         console.log(scroll)
         console.log(lastScroll + ' ' + st)
         var sections = $('.section')
@@ -124,10 +124,10 @@ function initScroll() {
         }
         if (lastSection < 0)
         // lastSection = sections.length-1
-            lastSection = 0
+        lastSection = 0
         if (lastSection >= sections.length)
         // lastSection = 0
-            lastSection = sections.length - 1
+        lastSection = sections.length - 1
         gotoSection = lastSection
         console.log(gotoSection)
         var goto = $(sections[gotoSection]).offset().top
@@ -140,12 +140,12 @@ function initScroll() {
         body.stop().animate({ scrollTop: goto }, '1000', 'swing', function() {
             console.log("Finished animating");
             setTimeout(function() {
-                    scrollEnabled = true
-                    console.log('enabled')
-                    $(window).scroll(scrollFunction)
-                    $("body").css("overflow-y", "scroll");
-                }, 100)
-                // disableOnce = true
+                scrollEnabled = true
+                console.log('enabled')
+                $(window).scroll(scrollFunction)
+                $("body").css("overflow-y", "scroll");
+            }, 100)
+            // disableOnce = true
         });
         // $(window).scrollTop($($('.section')[3]).offset().top)
     }
@@ -153,23 +153,23 @@ function initScroll() {
 
 function getColleges(cb) {
     if (typeof window.colleges == 'object' && typeof cb == 'function')
-        return cb(null, window.colleges)
+    return cb(null, window.colleges)
     $.get(window.serverUrl + 'public/college', function(data, status) {
         if (status == 'success') {
             window.colleges = data;
             if (typeof cb == 'function')
-                cb(null, data)
+            cb(null, data)
         } else if (typeof cb == 'function')
-            cb('Network error')
+        cb('Network error')
     })
 }
 
 function getEvents(cb) {
     if (typeof window.allEvents == 'object') {
         if (typeof localStorage.accessToken == 'string')
-            return getRegisteredEvents(cb)
+        return getRegisteredEvents(cb)
         if (typeof cb == 'function')
-            return cb(null, window.allEvents)
+        return cb(null, window.allEvents)
         else return
     }
     $.get(window.serverUrl + 'public/event', function(data, status) {
@@ -177,21 +177,21 @@ function getEvents(cb) {
             window.allEvents = data;
             console.log(allEvents)
             if (typeof localStorage.accessToken == 'undefined')
-                if (typeof cb == 'function')
-                    return cb(null, data)
-                else return
+            if (typeof cb == 'function')
+            return cb(null, data)
+            else return
             if (typeof localStorage.accessToken == 'string')
-                getRegisteredEvents(cb)
+            getRegisteredEvents(cb)
         } else if (typeof cb == 'function')
-            cb('Network error')
+        cb('Network error')
     })
 }
 
 function getRegisteredEvents(cb) {
     if (typeof window.registeredEvents == 'object')
-        if (typeof cb == 'function')
-            return cb(null, window.allEvents)
-        else return
+    if (typeof cb == 'function')
+    return cb(null, window.allEvents)
+    else return
     $.ajax({
         url: window.serverUrl + 'student/event/',
         type: 'get',
@@ -208,13 +208,13 @@ function getRegisteredEvents(cb) {
             })
             window.allEvents = window.allEvents.map(function(event) {
                 if (ids.indexOf(event.id) != -1)
-                    event.registered = true
+                event.registered = true
                 else
-                    event.registered = false
+                event.registered = false
                 return event
             })
             if (typeof cb == 'function')
-                cb(null, window.allEvents)
+            cb(null, window.allEvents)
         },
         error: function(error) {
             console.log(error)
@@ -226,18 +226,18 @@ function getRegisteredEvents(cb) {
 function getEventsByCategory(cat, cb) {
     getEvents(function(err, events) {
         if (err)
-            return cb(err)
+        return cb(err)
         var catEvents = events.filter(function(event) {
             return event.category == cat && !event.isWorkshop
         }).map(function(event) {
             event.totalPrize = event.prize1 + event.prize2 + event.prize3
             event.schedule = ''
             if (event.day >= 17)
-                event.day -= 16
+            event.day -= 16
             if (event.day) {
                 event.schedule += 'Day ' + event.day
                 if (event.time)
-                    event.schedule += ' ' + event.time
+                event.schedule += ' ' + event.time
             }
             return event
         })
@@ -248,7 +248,7 @@ function getEventsByCategory(cat, cb) {
 function getWorkshops(cb) {
     getEvents(function(err, events) {
         if (err)
-            return cb(err)
+        return cb(err)
         var workshops = events.filter(function(event) {
             return event.isWorkshop
         })
@@ -271,8 +271,8 @@ function showWorkshop(eventId) {
 
 function setupEvents() {
     console.log('setting up events')
-    $('.slide').click(loadEvents);
-    $($('.slide')[0]).click();
+    $('a.slide').click(loadEvents);
+    $($('a.slide')[0]).click();
 
     function loadEvents(event) {
         event.preventDefault();
@@ -292,6 +292,8 @@ function setupEvents() {
                 events: events
             })
             $('.events-grid').html(grid)
+            if(!events||events.length == 0)
+                return
             new grid3D(document.getElementById('grid3d'));
             fixEventsResponsive()
         })
@@ -317,20 +319,20 @@ function addGroupMember(eventId) {
         return ev.id == eventId
     })
     if (event.maxPerGroup > 0 && currentMembers.length == event.maxPerGroup - 1)
-        return showError("You cannot add more than " + event.maxPerGroup + " members to group")
+    return showError("You cannot add more than " + event.maxPerGroup + " members to group")
 
     var query = $('#register-' + eventId + ' .event-group input').val()
 
 
     $.get(window.serverUrl + 'public/student/' + query, function(data, status) {
         if (status != 'success')
-            return showError('unable to find student! Make sure you enter correct email/phone')
+        return showError('unable to find student! Make sure you enter correct email/phone')
         console.log(data)
         var isAlready = currentMembers.find(function(mem) {
             return mem.id == data.id
         })
         if (isAlready)
-            return showError("Member already added")
+        return showError("Member already added")
         currentMembers.push({
             id: data.id,
             name: data.name
@@ -342,7 +344,7 @@ function addGroupMember(eventId) {
         try {
             var error = JSON.parse(err.responseText)
             if (error.code == 15)
-                return showError(error.message)
+            return showError(error.message)
         } catch (err) {
             showError("Unable to find student")
         }
@@ -351,7 +353,7 @@ function addGroupMember(eventId) {
 
 function registerEvent(eventId) {
     if (!localStorage.accessToken)
-        return showError("Please login with facebook or google to register for event")
+    return showError("Please login with facebook or google to register for event")
 
     getEvents(function(err, events) {
         var event = events.find(function(event) {
@@ -390,7 +392,7 @@ function registerEvent(eventId) {
                 $('#register-' + eventId + ' .registered').removeClass('hide')
                 window.allEvents = window.allEvents.map(function(event) {
                     if (event.id == eventId)
-                        event.registered = true
+                    event.registered = true
                     return event
                 })
             },
@@ -399,7 +401,7 @@ function registerEvent(eventId) {
                 hideLoading()
                 $('.event-group').hide()
                 if (data.status == 401)
-                    return showError("Please login with faceebook or google to register for event")
+                return showError("Please login with faceebook or google to register for event")
                 showError("Unable to register for event")
             }
         });
@@ -413,7 +415,7 @@ function closeWorkshopModal() {
 function setupWorkshops() {
     getWorkshops(function(err, workshops) {
         if (err)
-            return setupWorkshops()
+        return setupWorkshops()
         console.log(workshops)
         var tmpl = $.templates("#workshopTemplate");
         var grid = tmpl.render(workshops)
@@ -536,8 +538,8 @@ function initializeParticles() {
 
 function setupNavigation() {
     var button = $('#cn-button'),
-        wrapper = $('#cn-wrapper'),
-        overlay = $('#cn-overlay');
+    wrapper = $('#cn-wrapper'),
+    overlay = $('#cn-overlay');
 
     //open and close menu when the button is clicked
     var open = false;
@@ -642,9 +644,9 @@ function initFirebase() {
     $('.login-button').click(function() {
         var provider = $(this).data('provider')
         if (provider == 'google')
-            var provider = new firebase.auth.GoogleAuthProvider();
+        var provider = new firebase.auth.GoogleAuthProvider();
         else
-            var provider = new firebase.auth.FacebookAuthProvider();
+        var provider = new firebase.auth.FacebookAuthProvider();
 
         firebase.auth().signInWithPopup(provider)
     })
@@ -663,18 +665,18 @@ function initFirebase() {
         var sex = sexInput[0].checked ? 'male' : 'female'
         var acco = $('#inputacco').is(':checked')
         if (acco)
-            acco = sex
+        acco = sex
         else
-            acco = 'none'
+        acco = 'none'
         var data = {
             phone: phone,
             collegeId: college,
             accomodation: acco
         }
         if (data.collegeId == '0')
-            return showError("Please select college or choose <b>others</b> from the list")
+        return showError("Please select college or choose <b>others</b> from the list")
         if (data.phone == "")
-            return showError("Please enter Phone")
+        return showError("Please enter Phone")
         console.log(data)
         showLoading()
         $.ajax({
@@ -709,15 +711,15 @@ function initFirebase() {
 
 /*about style*/
 /**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2016, Codrops
- * http://www.codrops.com
- */
+* main.js
+* http://www.codrops.com
+*
+* Licensed under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+*
+* Copyright 2016, Codrops
+* http://www.codrops.com
+*/
 ;
 (function(window) {
 
@@ -741,8 +743,8 @@ function initFirebase() {
     }
 
     /**
-     * RevealFx obj.
-     */
+    * RevealFx obj.
+    */
     function RevealFx(el, options) {
         this.el = el;
         this.options = extend({}, this.options);
@@ -751,8 +753,8 @@ function initFirebase() {
     }
 
     /**
-     * RevealFx options.
-     */
+    * RevealFx options.
+    */
     RevealFx.prototype.options = {
         // If true, then the content will be hidden until it´s "revealed".
         isContentHidden: true,
@@ -778,15 +780,15 @@ function initFirebase() {
     };
 
     /**
-     * Init.
-     */
+    * Init.
+    */
     RevealFx.prototype._init = function() {
         this._layout();
     };
 
     /**
-     * Build the necessary structure.
-     */
+    * Build the necessary structure.
+    */
     RevealFx.prototype._layout = function() {
         var position = getComputedStyle(this.el).position;
         if (position !== 'fixed' && position !== 'absolute' && position !== 'relative') {
@@ -806,37 +808,37 @@ function initFirebase() {
     };
 
     /**
-     * Gets the revealer element´s transform and transform origin.
-     */
+    * Gets the revealer element´s transform and transform origin.
+    */
     RevealFx.prototype._getTransformSettings = function(direction) {
         var val, origin, origin_2;
 
         switch (direction) {
             case 'lr':
-                val = 'scale3d(0,1,1)';
-                origin = '0 50%';
-                origin_2 = '100% 50%';
-                break;
+            val = 'scale3d(0,1,1)';
+            origin = '0 50%';
+            origin_2 = '100% 50%';
+            break;
             case 'rl':
-                val = 'scale3d(0,1,1)';
-                origin = '100% 50%';
-                origin_2 = '0 50%';
-                break;
+            val = 'scale3d(0,1,1)';
+            origin = '100% 50%';
+            origin_2 = '0 50%';
+            break;
             case 'tb':
-                val = 'scale3d(1,0,1)';
-                origin = '50% 0';
-                origin_2 = '50% 100%';
-                break;
+            val = 'scale3d(1,0,1)';
+            origin = '50% 0';
+            origin_2 = '50% 100%';
+            break;
             case 'bt':
-                val = 'scale3d(1,0,1)';
-                origin = '50% 100%';
-                origin_2 = '50% 0';
-                break;
+            val = 'scale3d(1,0,1)';
+            origin = '50% 100%';
+            origin_2 = '50% 0';
+            break;
             default:
-                val = 'scale3d(0,1,1)';
-                origin = '0 50%';
-                origin_2 = '100% 50%';
-                break;
+            val = 'scale3d(0,1,1)';
+            origin = '0 50%';
+            origin_2 = '100% 50%';
+            break;
         };
 
         return {
@@ -848,8 +850,8 @@ function initFirebase() {
     };
 
     /**
-     * Reveal animation. If revealSettings is passed, then it will overwrite the options.revealSettings.
-     */
+    * Reveal animation. If revealSettings is passed, then it will overwrite the options.revealSettings.
+    */
     RevealFx.prototype.reveal = function(revealSettings) {
         // Do nothing if currently animating.
         if (this.isAnimating) {
@@ -859,16 +861,16 @@ function initFirebase() {
 
         // Set the revealer element´s transform and transform origin.
         var defaults = { // In case revealSettings is incomplete, its properties deafault to:
-                duration: 500,
-                easing: 'easeInOutQuint',
-                delay: 0,
-                bgcolor: '#f0f0f0',
-                direction: 'lr',
-                coverArea: 0
-            },
-            revealSettings = revealSettings || this.options.revealSettings,
-            direction = revealSettings.direction || defaults.direction,
-            transformSettings = this._getTransformSettings(direction);
+            duration: 500,
+            easing: 'easeInOutQuint',
+            delay: 0,
+            bgcolor: '#f0f0f0',
+            direction: 'lr',
+            coverArea: 0
+        },
+        revealSettings = revealSettings || this.options.revealSettings,
+        direction = revealSettings.direction || defaults.direction,
+        transformSettings = this._getTransformSettings(direction);
 
         this.revealer.style.WebkitTransform = this.revealer.style.transform = transformSettings.val;
         this.revealer.style.WebkitTransformOrigin = this.revealer.style.transformOrigin = transformSettings.origin.initial;
@@ -881,26 +883,26 @@ function initFirebase() {
 
         // Animate it.
         var self = this,
-            // Second animation step.
-            animationSettings_2 = {
-                complete: function() {
-                    self.isAnimating = false;
-                    if (typeof revealSettings.onComplete === 'function') {
-                        revealSettings.onComplete(self.content, self.revealer);
-                    }
+        // Second animation step.
+        animationSettings_2 = {
+            complete: function() {
+                self.isAnimating = false;
+                if (typeof revealSettings.onComplete === 'function') {
+                    revealSettings.onComplete(self.content, self.revealer);
                 }
-            },
-            // First animation step.
-            animationSettings = {
-                delay: revealSettings.delay || defaults.delay,
-                complete: function() {
-                    self.revealer.style.WebkitTransformOrigin = self.revealer.style.transformOrigin = transformSettings.origin.halfway;
-                    if (typeof revealSettings.onCover === 'function') {
-                        revealSettings.onCover(self.content, self.revealer);
-                    }
-                    anime(animationSettings_2);
+            }
+        },
+        // First animation step.
+        animationSettings = {
+            delay: revealSettings.delay || defaults.delay,
+            complete: function() {
+                self.revealer.style.WebkitTransformOrigin = self.revealer.style.transformOrigin = transformSettings.origin.halfway;
+                if (typeof revealSettings.onCover === 'function') {
+                    revealSettings.onCover(self.content, self.revealer);
                 }
-            };
+                anime(animationSettings_2);
+            }
+        };
 
         animationSettings.targets = animationSettings_2.targets = this.revealer;
         animationSettings.duration = animationSettings_2.duration = revealSettings.duration || defaults.duration;
