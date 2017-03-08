@@ -1,7 +1,11 @@
 $(document).ready(function() {
     window.isDebug = false;
     window.serverUrl = 'http://server.drishticet.org/'
-    hideLoading()
+    window.preloader = new PreloaderQ(['load page'])
+    window.preloader.setFirstTaskCallback(showLoading)
+    window.preloader.setEmptyCallback(hideLoading)
+    window.preloader.dequeueTask('load page')
+    // hideLoading()
     initializeParticles()
     initializeFunction()
     setupNavigation()
@@ -172,7 +176,9 @@ function getEvents(cb) {
         return cb(null, window.allEvents)
         else return
     }
+    window.preloader.enqueueTask('load events')
     $.get(window.serverUrl + 'public/event', function(data, status) {
+        window.preloader.dequeueTask('load events')
         if (status == 'success') {
             window.allEvents = data;
             console.log(allEvents)
@@ -279,9 +285,11 @@ function setupEvents() {
         $('.events-bg').hide()
         var category = $(this).children().data('category')
         console.log(category)
-        showLoading()
+        // showLoading()
+        window.preloader.enqueueTask('setting up events')
         getEventsByCategory(category, function(err, events) {
-            hideLoading()
+            window.preloader.dequeueTask('setting up events')
+            // hideLoading()
             if (err) {
                 showError('Unable to load events')
                 return;
@@ -374,7 +382,8 @@ function registerEvent(eventId) {
             }
         }
         console.log(data)
-        showLoading()
+        // showLoading()
+        window.preloader.enqueueTask('register event')
         $.ajax({
             url: window.serverUrl + 'student/event/' + eventId,
             type: 'put',
@@ -386,7 +395,8 @@ function registerEvent(eventId) {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
-                hideLoading()
+                // hideLoading()
+                window.preloader.dequeueTask('register event')
                 $('.event-group').hide()
                 $('#register-' + eventId + ' button.btn-register').hide()
                 $('#register-' + eventId + ' .registered').removeClass('hide')
@@ -398,7 +408,8 @@ function registerEvent(eventId) {
             },
             error: function(data) {
                 console.log(data)
-                hideLoading()
+                // hideLoading()
+                window.preloader.dequeueTask('register event')
                 $('.event-group').hide()
                 if (data.status == 401)
                 return showError("Please login with faceebook or google to register for event")
@@ -592,26 +603,30 @@ function initFirebase() {
             user.getToken().then(function(accessToken) {
                 console.log('got token')
                 localStorage.accessToken = accessToken
-                showLoading()
+                // showLoading()
+                window.preloader.enqueueTask('user login')
                 $.post(window.serverUrl + 'student/login', {
                     idToken: accessToken
                 }, function(data, status) {
                     if (status != 'success') {
-                        hideLoading()
+                        // hideLoading()
+                        window.preloader.dequeueTask('user login')
                         showError("Unable to login")
                         return;
                     }
                     console.log(data)
                     localStorage.user = JSON.stringify(data)
                     if (data.registered) {
-                        hideLoading()
+                        // hideLoading()
+                        window.preloader.dequeueTask('user login')
                         $('#login').hide()
                         $('#loggedIn').show()
                         $('.account-name').html(data.name)
                         eventSetup()
                     } else {
                         getColleges(function(err, colleges) {
-                            hideLoading()
+                            // hideLoading()
+                            window.preloader.dequeueTask('user login')
                             if (err) {
                                 return showError("Unable to get College list")
                             }
@@ -678,7 +693,8 @@ function initFirebase() {
         if (data.phone == "")
         return showError("Please enter Phone")
         console.log(data)
-        showLoading()
+        window.preloader.enqueueTask('get colleges')
+        // showLoading()
         $.ajax({
             url: window.serverUrl + 'student/register',
             type: 'post',
@@ -689,7 +705,8 @@ function initFirebase() {
             dataType: 'json',
             success: function(data) {
                 console.log(data)
-                hideLoading()
+                // hideLoading()
+                window.preloader.dequeueTask('get colleges')
                 var user = JSON.parse(localStorage.user)
                 $('#login').hide()
                 $('#loggedIn').show()
@@ -697,7 +714,8 @@ function initFirebase() {
                 $('#registerModal').modal('hide')
             },
             error: function(data) {
-                hideLoading()
+                // hideLoading()
+                window.preloader.dequeueTask('get colleges')
                 console.log(data)
                 showError("Unable to register")
             }
