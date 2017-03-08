@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lemonada|Playfair+Display');
 body {
     padding: 0;
     margin: 0;
@@ -2353,4 +2354,31 @@ h2,
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+.about-cet{
+  background-color:#000;
+  color:#fff;
+
+    padding-bottom: 15px;
+    padding-right: 5px;
+    padding-top: 15px;
+font-weight: 10;
+  radius:30px;
+  height:50%;
+  width:100%;
+  position:relative;
+
+}
+.image-circle{
+  border-radius:50%;
+}
+
+.about-cet-header{
+  font-family:'Lemonada',serif, cursive;
+  font-size:3em;
+}
+.about-cet-content{
+  padding-top:10%;
+  font-family:'Playfair Display', serif;
+  font-size: 1.5em;
 }
