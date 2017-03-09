@@ -1439,7 +1439,6 @@ Build the scene and rotate on hover
 **************************************/
 
 .scene {
-  border:10px solid white;
     width: 300px;
     height: 300px;
     margin: 30px;
