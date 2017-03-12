@@ -2923,3 +2923,42 @@ svg#bigTriangleColor {
 .card-title {
     text-align: center;
 }
+
+#map {
+    background-color: #333;
+}
+
+#map .section-head {
+    margin: 0;
+    color: white;
+    padding: 20px;
+}
+
+.contact-card {
+    margin: 10px;
+    box-shadow: 0 2px 5px 0 rgba(245, 245, 245, 0.78), 0 2px 10px 0 rgba(232, 222, 222, 0.27);
+    background: white;
+    font-family: "Roboto";
+    border-radius: 5px;
+    text-align: center;
+}
+
+.contact-card h4 {
+    padding: 10px;
+    color: #757D75;
+    font-family: "Oswald";
+    font-size: 16px;
+    margin: 0;
+}
+
+.contact-card h3 {
+    margin: 2px 0 7px 0;
+}
+
+.contact-card a {
+    cursor: pointer;
+}
+
+.contact-card a img {}
+
+.contact-card a span {}
